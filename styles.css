@@ -17,6 +17,7 @@ header img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px; /* Add some spacing below the image */
+    max-width: 700px; /* Set maximum width for the logo */
 }
 
 nav ul {
