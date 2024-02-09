@@ -13,6 +13,12 @@ header {
     padding: 1rem;
 }
 
+header img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Add some spacing below the image */
+}
+
 nav ul {
     list-style: none;
     margin: 0;
