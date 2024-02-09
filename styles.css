@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #87c735; /* Green background */
+    background-color: #5a8f29; /* Darker green background */
     color: #ffffff; /* White text color */
     text-align: center;
     padding: 1rem;
@@ -34,7 +34,7 @@ section {
 }
 
 footer {
-    background-color: #87c735; /* Green background */
+    background-color: #5a8f29; /* Darker green background */
     color: #ffffff; /* White text color */
     text-align: center;
     padding: 1rem;
