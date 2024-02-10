@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
       rel="stylesheet"
     />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 
     <title>Hambledon Village Shop</title>
   </head>
@@ -65,17 +65,21 @@
         >
       </h3>
     </section>
-    <div id="map"></div>
+    <section id="map-section" class="map-section">
+      <div id="map"></div>
+    </section>
+
     <script>
       mapboxgl.accessToken =
         "pk.eyJ1Ijoiam9uZXBldGVyc2VuIiwiYSI6ImNsc2dtcWc5MDEzeWYyaXB2MHgxaDdxNjQifQ.HHfayli027QjXs_TVhp1-Q";
-      var map = new mapboxgl.Map({
+      const map = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/streets-v11",
-        center: [-0.56316, 51.15202],
-        zoom: 15,
+        center: [-0.6318126, 51.1297669],
+        zoom: 13,
       });
     </script>
+
     <footer>
       <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
     </footer>

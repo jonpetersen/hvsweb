@@ -187,6 +187,18 @@ section {
   transform: scale(1.8); /* Scale up on hover for a visual effect */
 }
 
+.map-section {
+  align-items: center;
+}
+
+#map {
+  position: relative;
+  top: 0px;
+  bottom: 0;
+  height: 500px;
+  width: 100%;
+}
+
 footer {
   margin-top: auto;
   background-color: #5a8f29;
