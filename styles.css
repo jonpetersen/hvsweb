@@ -52,6 +52,10 @@ nav a {
   text-align: left; /* Left-align the text inside the section */
 }
 
+.justified-text {
+  text-align: justify; /* Left-align the text inside the section */
+}
+
 .featured-image img {
   max-width: 50%;
   height: auto;
@@ -184,10 +188,10 @@ section {
 }
 
 footer {
+  margin-top: auto;
   background-color: #5a8f29;
   color: #ffffff;
   text-align: center;
   padding: 1rem;
   bottom: 0;
-  width: 100%;
 }

@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
     <title>Hambledon Village Shop</title>
   </head>
 
@@ -31,6 +37,26 @@
       Monday to Sunday 08:30-14:00 (with last orders for the deli-café at 13:30)
       <h3>Post Office Hours:</h3>
       Monday to Friday 09:00-13:45, Saturday 09:00-12:15
+
+      <section id="shop-description" class="center-section justified-text">
+        <p>
+          The Village Shop is nestled in the Surrey Hills, next to the Cricket
+          Green in the beautiful village of Hambledon, Surrey. The Shop is owned
+          and run by the community and in it's small space provides a grocery
+          shop, an off-license, a newsagent, a cafe, a delicatessen and a Post
+          Office. Most important of all it provides a communal hub where locals
+          and visitors can meet and mingle, or just enjoy a quiet coffee in
+          beautiful and peaceful surroundings.
+        </p>
+        <p>
+          The Shop has a modern disabled accessible toilet and nappy changing
+          facility, fast and free wi-fi, a kids play area, complimentary dog
+          biscuits and plenty of free on-street parking.
+        </p>
+      </section>
+      <h3>
+        Hambledon Village Shop The Cricket Green Hambledon Surrey, GU8 4HF
+      </h3>
       <h3>Tel: 01428 682176</h3>
       <h3>
         <a
@@ -39,7 +65,17 @@
         >
       </h3>
     </section>
-
+    <div id="map"></div>
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1Ijoiam9uZXBldGVyc2VuIiwiYSI6ImNsc2dtcWc5MDEzeWYyaXB2MHgxaDdxNjQifQ.HHfayli027QjXs_TVhp1-Q";
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [-0.56316, 51.15202],
+        zoom: 15,
+      });
+    </script>
     <footer>
       <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
     </footer>
