@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   gridItems.forEach((item) => {
     item.addEventListener("click", function () {
-      this.querySelector("img").style.transform = "scale(1.5)";
+      this.querySelector("img").style.transform = "scale(4)";
     });
 
     item.addEventListener("mouseleave", function () {
