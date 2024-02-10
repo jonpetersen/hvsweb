@@ -171,6 +171,18 @@ section {
   right: 10px;
 }
 
+.popup-image {
+  width: 50%; /* Make images the same width as the featured image */
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.popup-image:hover {
+  transform: scale(1.8); /* Scale up on hover for a visual effect */
+}
+
 footer {
   background-color: #5a8f29;
   color: #ffffff;

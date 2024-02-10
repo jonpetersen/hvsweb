@@ -56,3 +56,23 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.style.display = "none";
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const popupImages = document.querySelectorAll(".popup-image");
+
+  popupImages.forEach((image) => {
+    image.addEventListener("click", function () {
+      const clickedImageSrc = this.src;
+      showPopupImage(clickedImageSrc);
+    });
+  });
+
+  function showPopupImage(imageSrc) {
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("modal");
+    const expandedImage = document.getElementById("expanded-image");
+
+    expandedImage.src = imageSrc;
+    overlay.style.display = "block";
+  }
+});
