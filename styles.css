@@ -126,11 +126,46 @@ section {
 
 .close {
   position: absolute;
-  top: 0;
-  right: 0;
-  color: #fff;
+  top: 10px;
+  right: 10px;
   font-size: 24px;
+  color: #fff;
   cursor: pointer;
+  border-radius: 50%; /* Make the buttons circular */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 5px; /* Add padding to create space around the buttons */
+  width: 30px; /* Ensure equal width and height for a perfect circle */
+  height: 30px; /* Ensure equal width and height for a perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn {
+  position: absolute;
+  top: calc(
+    50% - 15px
+  ); /* Move the navigation buttons to halfway up the photo */
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%; /* Make the buttons circular */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 5px; /* Add padding to create space around the buttons */
+  width: 30px; /* Ensure equal width and height for a perfect circle */
+  height: 30px; /* Ensure equal width and height for a perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#prev-btn {
+  left: 10px;
+}
+
+#next-btn {
+  right: 10px;
 }
 
 footer {
