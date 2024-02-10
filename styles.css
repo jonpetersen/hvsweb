@@ -68,9 +68,18 @@ section {
   gap: 10px;
 }
 
-.image-grid img {
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  background-color: #ddd; /* Default background color for grid items */
+  cursor: pointer;
+}
+
+.grid-item img {
   width: 100%;
   height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
 }
 
 footer {
