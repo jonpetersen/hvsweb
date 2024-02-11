@@ -68,6 +68,13 @@ section {
   margin-left: 80px;
 }
 
+.no-margins {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
 .center-content {
   text-align: center;
 }
@@ -185,6 +192,12 @@ section {
 
 .popup-image:hover {
   transform: scale(1.8); /* Scale up on hover for a visual effect */
+}
+
+#instagram-section img {
+  width: 48px; /* Adjust the width of the Instagram icon to make it smaller */
+  height: 48px; /* Adjust the height of the Instagram icon to make it smaller */
+  margin-top: 5px; /* Add some spacing between the icon and text */
 }
 
 .map-section {
