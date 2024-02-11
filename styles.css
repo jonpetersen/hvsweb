@@ -66,6 +66,11 @@ nav a {
   height: auto;
 }
 
+.featured-image-volunteering img {
+  max-width: 60%;
+  height: auto;
+}
+
 section {
   margin-top: 20px;
   margin-bottom: 20px;
