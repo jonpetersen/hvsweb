@@ -191,7 +191,11 @@ section {
 }
 
 .popup-image:hover {
-  transform: scale(1.8); /* Scale up on hover for a visual effect */
+  transform: scale(2); /* Scale up on hover for a visual effect */
+}
+
+.popup-image:not(:hover) {
+  transform: scale(1); /* Scale up on hover for a visual effect */
 }
 
 #instagram-section img {
