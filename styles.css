@@ -53,6 +53,11 @@ nav a {
   max-width: 700px; /* Optional: Limit the maximum width of the section */
 }
 
+.gallery-section {
+  margin: 0 auto; /* Center the section */
+  max-width: 800px; /* Optional: Limit the maximum width of the section */
+}
+
 .left-aligned-text {
   text-align: left; /* Left-align the text inside the section */
 }
