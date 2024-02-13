@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Our History 1922-2022</title>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <img src="images/hvsheader.png" alt="Hambledon Village Shop Logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="thecafe.html">The Café/Deli</a></li>
+          <li><a href="post-office.html">The Post Office</a></li>
+          <li><a href="volunteering.html">Volunteering</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Embedded PDF section using PDF.js -->
+    <section>
+      <h2>Read Our PDF</h2>
+
+      <canvas id="pdfViewer" style="border: 1px solid black"></canvas>
+
+      <script>
+        var pdfUrl = "images/hvs1922-2022.pdf";
+
+        // Load and display the PDF using PDF.js
+        pdfjsLib.getDocument(pdfUrl).then(function (pdf) {
+          pdf.getPage(1).then(function (page) {
+            var canvas = document.getElementById("pdfViewer");
+            var context = canvas.getContext("2d");
+
+            var viewport = page.getViewport({ scale: 1.5 });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            var renderContext = {
+              canvasContext: context,
+              viewport: viewport,
+            };
+
+            page.render(renderContext);
+          });
+        });
+      </script>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
