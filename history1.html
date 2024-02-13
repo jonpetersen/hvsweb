@@ -29,8 +29,7 @@
       <canvas id="pdfViewer" style="border: 1px solid black"></canvas>
 
       <script>
-        var pdfUrl =
-          "https://hambledonvillageshop.co.uk/images/hvs1922-2022.pdf";
+        var pdfUrl = "hvs1922_2022.pdf";
         // Load and display the PDF using PDF.js
         pdfjsLib.getDocument(pdfUrl).then(function (pdf) {
           pdf.getPage(1).then(function (page) {
