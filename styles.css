@@ -19,10 +19,10 @@ header {
 }
 
 header img {
+  width: 100vw;
   max-width: 100%;
   height: auto;
   margin-bottom: 10px; /* Add some spacing below the image */
-  max-width: 700px; /* Set maximum width for the logo */
 }
 
 nav ul {
@@ -38,13 +38,14 @@ nav ul li {
 
 nav a {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: #f5d405; /* White link color */
 }
 
 h2.red-text {
   color: #b12820;
+  font-size: 22px;
 }
 
 #home {
@@ -59,7 +60,7 @@ h2.red-text {
 
 .gallery-section {
   margin: 0 auto; /* Center the section */
-  max-width: 800px; /* Optional: Limit the maximum width of the section */
+  /* max-width: 800px; /* Optional: Limit the maximum width of the section */ */
 }
 
 .left-aligned-text {
@@ -71,20 +72,20 @@ h2.red-text {
 }
 
 .featured-image img {
-  max-width: 60%;
+  width: 80vw;
   height: auto;
 }
 
 .featured-image-volunteering img {
-  max-width: 60%;
+  width: 80vw;
   height: auto;
 }
 
 section {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 80px;
-  margin-left: 80px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 25px;
+  margin-left: 25px;
 }
 
 .no-margins {
@@ -148,8 +149,8 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .modal img {
@@ -165,10 +166,11 @@ section {
   color: #fff;
   cursor: pointer;
   border-radius: 50%; /* Make the buttons circular */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  padding: 5px; /* Add padding to create space around the buttons */
-  width: 30px; /* Ensure equal width and height for a perfect circle */
-  height: 30px; /* Ensure equal width and height for a perfect circle */
+  background-color: rgba(0, 0, 0, 1); /* Semi-transparent background */
+  padding-top: 0px;
+  padding-bottom: 2px; /* Add padding to create space around the buttons */
+  width: 25px; /* Ensure equal width and height for a perfect circle */
+  height: 25px; /* Ensure equal width and height for a perfect circle */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -184,10 +186,10 @@ section {
   cursor: pointer;
   border: none;
   border-radius: 50%; /* Make the buttons circular */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  padding: 5px; /* Add padding to create space around the buttons */
-  width: 30px; /* Ensure equal width and height for a perfect circle */
-  height: 30px; /* Ensure equal width and height for a perfect circle */
+  background-color: rgba(0, 0, 0, 1); /* Semi-transparent background */
+  padding: 3px; /* Add padding to create space around the buttons */
+  width: 25px; /* Ensure equal width and height for a perfect circle */
+  height: 25px; /* Ensure equal width and height for a perfect circle */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,15 +204,14 @@ section {
 }
 
 .popup-image {
-  width: 50%; /* Make images the same width as the featured image */
-  max-width: 100%;
+  width: 100vw;
   height: auto;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.9s ease-in-out;
 }
 
 .popup-image:hover {
-  transform: scale(2); /* Scale up on hover for a visual effect */
+  transform: scale(5); /* Scale up on hover for a visual effect */
 }
 
 .popup-image:not(:hover) {
@@ -220,10 +221,13 @@ section {
 #instagram-section img {
   width: 48px; /* Adjust the width of the Instagram icon to make it smaller */
   height: 48px; /* Adjust the height of the Instagram icon to make it smaller */
-  margin-top: 5px; /* Add some spacing between the icon and text */
+  line-height: 1;
+  margin-top: 0px; /* Add some spacing between the icon and text */
 }
 
 .map-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
   align-items: center;
 }
 
@@ -237,9 +241,10 @@ section {
 
 footer {
   margin-top: auto;
+  font-size: 16px;
   background-color: #5a8f29;
   color: #ffffff;
   text-align: center;
-  padding: 1rem;
+  padding: 0rem;
   bottom: 0;
 }
