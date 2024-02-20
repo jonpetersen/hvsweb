@@ -43,6 +43,10 @@ nav a {
   color: #f5d405; /* White link color */
 }
 
+h2.red-text {
+  color: #b12820;
+}
+
 #home {
   text-align: center;
 }
@@ -67,7 +71,7 @@ nav a {
 }
 
 .featured-image img {
-  max-width: 80%;
+  max-width: 60%;
   height: auto;
 }
 
