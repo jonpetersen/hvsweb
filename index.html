@@ -3,90 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hambledon Village Shop</title>
+
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Mapbox -->
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
       rel="stylesheet"
     />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
-
-    <title>Hambledon Village Shop</title>
   </head>
 
   <body>
-    <header>
-      <img src="images/hvsheader.png" alt="Hambledon Village Shop Logo" />
-      <nav>
-        <ul>
-          <li><a href="theshop.html">The Shop</a></li>
-          <li><a href="thecafe.html">The Café/Deli</a></li>
-          <li><a href="post-office.html">The Post Office</a></li>
-          <li><a href="volunteering.html">Volunteering</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li>
-            <a
-              href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
-              >Our History</a
-            >
-          </li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo-wrap">
+          <img
+            src="images/hvsheader.png"
+            alt="Hambledon Village Shop Logo"
+            class="logo"
+          />
+        </a>
+
+        <!-- Mobile nav toggle -->
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="theshop.html">The Shop</a></li>
+            <li><a href="thecafe.html">The Café/Deli</a></li>
+            <li><a href="post-office.html">The Post Office</a></li>
+            <li><a href="volunteering.html">Volunteering</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li>
+              <a
+                href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
+                >Our History</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <section id="about" class="center-content">
-      <h2 class="red-text">Welcome to Hambledon Village Shop</h2>
-      <div class="featured-image">
-        <img src="images/shop_front.jpg" alt="Home Featured Image" />
-      </div>
-      <h3>Shop Hours:</h3>
-      Monday to Sunday 08:30-14:00 (with last orders for the deli-café at 13:30)
-      <h3>Post Office Hours:</h3>
-      Monday to Friday 09:00-13:45, Saturday 09:00-12:15
+    <main>
+      <section id="about" class="center-content hero-section">
+        <h2 class="red-text">Welcome to Hambledon Village Shop</h2>
 
-      <section id="shop-description" class="center-section left-aligned-text">
-        <p>
-          The Village Shop is nestled in the Surrey Hills, next to the Cricket
-          Green in the beautiful village of Hambledon, Surrey. The Shop is owned
-          and run by the community and in it's small space provides a grocery
-          shop, an off-license, a newsagent, a cafe, a delicatessen and a Post
-          Office. Most important of all it provides a communal hub where locals
-          and visitors can meet and mingle, or just enjoy a quiet coffee in
-          beautiful and peaceful surroundings.
-        </p>
-        <p>
-          The Shop has a modern disabled accessible toilet and nappy changing
-          facility, fast and free wi-fi, a kids play area, complimentary dog
-          biscuits and plenty of free on-street parking.
-        </p>
+        <div class="featured-image">
+          <img src="images/shop_front.jpg" alt="Hambledon Village Shop front" />
+        </div>
+
+        <div class="info-card">
+          <div class="hours">
+            <h3>Shop Hours</h3>
+            <p>
+              Monday to Sunday<br />
+              <strong>08:30–14:00</strong><br />
+              <small>Last deli-café orders at 13:30</small>
+            </p>
+
+            <h3>Post Office Hours</h3>
+            <p>
+              Monday to Friday<br />
+              <strong>09:00–13:45</strong><br />
+              Saturday<br />
+              <strong>09:00–12:15</strong>
+            </p>
+          </div>
+
+          <section
+            id="shop-description"
+            class="center-section left-aligned-text"
+          >
+            <p>
+              The Village Shop is nestled in the Surrey Hills, next to the
+              Cricket Green in the beautiful village of Hambledon, Surrey. The
+              Shop is owned and run by the community and in its small space
+              provides a grocery shop, an off-license, a newsagent, a café, a
+              delicatessen and a Post Office. Most important of all, it provides
+              a communal hub where locals and visitors can meet and mingle, or
+              just enjoy a quiet coffee in beautiful and peaceful surroundings.
+            </p>
+            <p>
+              The Shop has a modern disabled accessible toilet and nappy
+              changing facility, fast and free Wi-Fi, a kids’ play area,
+              complimentary dog biscuits and plenty of free on-street parking.
+            </p>
+          </section>
+        </div>
+
+        <div class="contact">
+          <h3>
+            Hambledon Village Shop<br />
+            The Cricket Green, Hambledon, Surrey, GU8 4HF
+          </h3>
+          <h3>Tel: <a href="tel:01428682176">01428 682176</a></h3>
+          <h3>
+            <a
+              href="mailto:villageshop@hambledonsurrey.co.uk?ref=hambledon-village-shop-post-office"
+              >villageshop@hambledonsurrey.co.uk</a
+            >
+          </h3>
+        </div>
       </section>
-      <h3>
-        Hambledon Village Shop The Cricket Green Hambledon Surrey, GU8 4HF
-      </h3>
-      <h3>Tel: 01428 682176</h3>
-      <h3>
-        <a
-          href="mailto:villageshop@hambledonsurrey.co.uk?ref=hambledon-village-shop-post-office"
-          >villageshop@hambledonsurrey.co.uk</a
-        >
-      </h3>
-    </section>
 
-    <section id="instagram-section" class="center-content no-margins">
-      <h3>Follow us on Instagram</h3>
+      <section id="instagram-section" class="center-content no-margins">
+        <div class="instagram-card">
+          <h3>Follow us on Instagram</h3>
+          <a
+            href="https://www.instagram.com/hambledon_village_shop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="instagram-link"
+          >
+            <img
+              src="images/instagram.jpg"
+              alt="Instagram Icon"
+              class="instagram-icon"
+            />
+            <span>@hambledon_village_shop</span>
+          </a>
+        </div>
+      </section>
 
-      <!-- Add the link to the shop's Instagram account -->
-      <a
-        href="https://www.instagram.com/hambledon_village_shop/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img src="images/instagram.jpg" alt="Instagram Icon" />
-      </a>
-    </section>
-    <section id="map-section" class="map-section">
-      <div id="map"></div>
-    </section>
+      <section id="map-section" class="map-section">
+        <h3 class="map-title">Find Us</h3>
+        <div id="map"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
+    </footer>
+
     <script>
+      // Mapbox
       mapboxgl.accessToken =
         "pk.eyJ1Ijoiam9uZXBldGVyc2VuIiwiYSI6ImNsc2dtcWc5MDEzeWYyaXB2MHgxaDdxNjQifQ.HHfayli027QjXs_TVhp1-Q";
       const map = new mapboxgl.Map({
@@ -95,10 +157,19 @@
         center: [-0.6318126, 51.1297669],
         zoom: 13,
       });
-    </script>
 
-    <footer>
-      <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
-    </footer>
+      new mapboxgl.Marker().setLngLat([-0.6318126, 51.1297669]).addTo(map);
+
+      // Mobile nav toggle
+      const navToggle = document.querySelector(".nav-toggle");
+      const mainNav = document.querySelector(".main-nav");
+
+      navToggle.addEventListener("click", () => {
+        const expanded =
+          navToggle.getAttribute("aria-expanded") === "true" || false;
+        navToggle.setAttribute("aria-expanded", !expanded);
+        mainNav.classList.toggle("nav-open");
+      });
+    </script>
   </body>
 </html>
