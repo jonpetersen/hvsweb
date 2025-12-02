@@ -1,250 +1,356 @@
+/* Base styles */
+
+:root {
+  --hvs-green: #305c3b;
+  --hvs-red: #b5212b;
+  --hvs-cream: #faf7f1;
+  --hvs-gray: #555555;
+  --hvs-light-gray: #e5e5e5;
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --radius-lg: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
-    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
-  margin: 0;
-  background-color: #ffffff; /* White background */
-  color: #333; /* Dark text color */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
-  font-size: 18px; /* Set a base font size for the entire page */
-  line-height: 1.5;
-}
-
-header {
-  background-color: #5a8f29; /* Darker green background */
-  color: #ffffff; /* White text color */
-  text-align: center;
-  padding: 1rem;
-}
-
-header img {
-  width: 100vw;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px; /* Add some spacing below the image */
-}
-
-nav ul {
-  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
-  display: inline;
-  margin-right: 20px;
+body {
+  font-family: "Helvetica Neue", Arial, system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--hvs-gray);
+  background: linear-gradient(to bottom, #ffffff, var(--hvs-cream));
 }
 
-nav a {
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  color: #f5d405; /* White link color */
-}
+/* Layout */
 
-h2.red-text {
-  color: #b12820;
-  font-size: 22px;
-}
-
-#home {
-  text-align: center;
-}
-
-.center-section {
-  text-align: left; /* Keep text left-justified inside the section */
-  margin: 0 auto; /* Center the section */
-  max-width: 700px; /* Optional: Limit the maximum width of the section */
-}
-
-.gallery-section {
-  margin: 0 auto; /* Center the section */
-  /* max-width: 800px; /* Optional: Limit the maximum width of the section */ */
-}
-
-.left-aligned-text {
-  text-align: left; /* Left-align the text inside the section */
-}
-
-.justified-text {
-  text-align: justify; /* Left-align the text inside the section */
-}
-
-.featured-image img {
-  width: 80vw;
-  height: auto;
-}
-
-.featured-image-volunteering img {
-  width: 80vw;
-  height: auto;
-}
-
-section {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 25px;
-  margin-left: 25px;
-}
-
-.no-margins {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px;
-  margin-left: 0px;
+main {
+  padding: 1.5rem 1rem 3rem;
 }
 
 .center-content {
   text-align: center;
 }
 
-#gallery {
-  text-align: center;
-  margin-bottom: 20px;
-  flex: 1;
+.no-margins {
+  margin-top: 0;
 }
 
-.featured-image-gallery img {
-  max-width: 100%;
-  height: auto;
-}
+/* Header */
 
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.grid-item {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.grid-item img {
-  max-width: 90%;
-  max-height: 90%;
-  width: auto;
-  height: auto;
-  transition: transform 0.7s ease-in-out;
-  border: 2px solid #ddd;
-}
-
-.overlay {
-  display: none;
-  position: fixed;
+.site-header {
+  background: #ffffffcc;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--hvs-light-gray);
+  position: sticky;
   top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo {
+  max-height: 70px;
+  width: auto;
+  display: block;
+}
+
+/* Navigation */
+
+.main-nav {
+  display: none;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--hvs-gray);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 0.15rem;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
   left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--hvs-green);
+  transition: width 0.2s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
 }
 
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100%;
-  max-height: 100%;
-}
+/* Mobile nav toggle */
 
-.modal img {
-  width: 100%;
-  height: auto;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 50%; /* Make the buttons circular */
-  background-color: rgba(0, 0, 0, 1); /* Semi-transparent background */
-  padding-top: 0px;
-  padding-bottom: 2px; /* Add padding to create space around the buttons */
-  width: 25px; /* Ensure equal width and height for a perfect circle */
-  height: 25px; /* Ensure equal width and height for a perfect circle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-btn {
-  position: absolute;
-  top: calc(
-    50% - 15px
-  ); /* Move the navigation buttons to halfway up the photo */
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
+.nav-toggle {
+  background: none;
   border: none;
-  border-radius: 50%; /* Make the buttons circular */
-  background-color: rgba(0, 0, 0, 1); /* Semi-transparent background */
-  padding: 3px; /* Add padding to create space around the buttons */
-  width: 25px; /* Ensure equal width and height for a perfect circle */
-  height: 25px; /* Ensure equal width and height for a perfect circle */
-  display: flex;
-  align-items: center;
+  padding: 0.3rem;
+  display: inline-flex;
+  flex-direction: column;
   justify-content: center;
-}
-
-#prev-btn {
-  left: 10px;
-}
-
-#next-btn {
-  right: 10px;
-}
-
-.popup-image {
-  width: 100vw;
-  height: auto;
+  gap: 0.2rem;
   cursor: pointer;
-  transition: transform 0.9s ease-in-out;
 }
 
-.popup-image:hover {
-  transform: scale(5); /* Scale up on hover for a visual effect */
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--hvs-gray);
+  border-radius: 999px;
 }
 
-.popup-image:not(:hover) {
-  transform: scale(1); /* Scale up on hover for a visual effect */
+/* Show nav when open (mobile) */
+
+.main-nav.nav-open {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
-#instagram-section img {
-  width: 48px; /* Adjust the width of the Instagram icon to make it smaller */
-  height: 48px; /* Adjust the height of the Instagram icon to make it smaller */
-  line-height: 1;
-  margin-top: 0px; /* Add some spacing between the icon and text */
+.main-nav.nav-open ul {
+  flex-direction: column;
+  align-items: flex-start;
 }
+
+/* Hero / About section */
+
+.hero-section {
+  max-width: 1100px;
+  margin: 1.5rem auto;
+}
+
+.hero-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.red-text {
+  color: var(--hvs-red);
+}
+
+/* Featured image */
+
+.featured-image {
+  margin: 0 auto 1.5rem;
+  max-width: 800px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.featured-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Info card */
+
+.info-card {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0 auto 2rem;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.7rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+}
+
+.hours h3 {
+  margin: 0 0 0.25rem;
+  color: var(--hvs-green);
+}
+
+.hours p {
+  margin: 0 0 1rem;
+}
+
+.hours strong {
+  font-size: 1rem;
+}
+
+.hours small {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Text block */
+
+.center-section.left-aligned-text {
+  text-align: left;
+}
+
+.center-section.left-aligned-text p {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+
+/* Contact section */
+
+.contact {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.contact h3 {
+  margin: 0.2rem 0;
+  font-weight: 500;
+}
+
+.contact a {
+  color: var(--hvs-green);
+  text-decoration: none;
+}
+
+.contact a:hover,
+.contact a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Instagram */
+
+.instagram-card {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.instagram-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--hvs-gray);
+  font-weight: 500;
+}
+
+.instagram-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--hvs-light-gray);
+}
+
+/* Map section */
 
 .map-section {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.map-title {
+  text-align: left;
+  margin: 0 0 0.5rem;
+  color: var(--hvs-green);
 }
 
 #map {
-  position: relative;
-  top: 0px;
-  bottom: 0;
-  height: 500px;
   width: 100%;
+  height: 320px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
 }
 
-footer {
-  margin-top: auto;
-  font-size: 16px;
-  background-color: #5a8f29;
-  color: #ffffff;
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--hvs-light-gray);
   text-align: center;
-  padding: 0rem;
-  bottom: 0;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+  background: #ffffff;
+}
+
+/* Medium screens and up */
+
+@media (min-width: 700px) {
+  main {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .hero-section h2 {
+    font-size: 1.9rem;
+  }
+
+  .info-card {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+    align-items: flex-start;
+  }
+
+  .instagram-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 900px) {
+  .header-inner {
+    padding: 0.7rem 1.5rem;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+  }
+
+  .main-nav.nav-open {
+    display: block;
+  }
 }
