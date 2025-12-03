@@ -467,25 +467,25 @@ main {
 }
 
 
-/* --- SHOP + CAFE INFO CARD OVERRIDES -------------------------------- */
+/* --- SHOP / CAFE / POST OFFICE INFO CARD OVERRIDES ----------------- */
 
 #shop .info-card,
-#cafe .info-card {
+#cafe .info-card,
+#post-office .info-card {
   max-width: 1100px;
-  grid-template-columns: 1fr !important;  /* full-width single column */
+  grid-template-columns: 1fr !important;
   text-align: center;
   padding: 2rem 1.8rem;
 }
 
-/* Centre all paragraphs inside both cards */
 #shop .info-card p,
-#cafe .info-card p {
+#cafe .info-card p,
+#post-office .info-card p {
   text-align: center !important;
   margin-left: auto;
   margin-right: auto;
-  max-width: 850px;   /* keeps lines readable */
+  max-width: 850px;
 }
-
 /* Remove left alignment forced by the 'left-aligned-text' class */
 #cafe .left-aligned-text,
 #shop .left-aligned-text {
