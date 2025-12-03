@@ -469,6 +469,7 @@ main {
 
 /* --- SHOP / CAFE / POST OFFICE INFO CARD OVERRIDES ----------------- */
 
+/* Make all info cards single-column, centred, full-width */
 #shop .info-card,
 #cafe .info-card,
 #post-office .info-card {
@@ -478,6 +479,7 @@ main {
   padding: 2rem 1.8rem;
 }
 
+/* Centre all paragraphs inside the cards */
 #shop .info-card p,
 #cafe .info-card p,
 #post-office .info-card p {
@@ -486,8 +488,10 @@ main {
   margin-right: auto;
   max-width: 850px;
 }
-/* Remove left alignment forced by the 'left-aligned-text' class */
+
+/* Override the legacy class that forces left alignment */
+#shop .left-aligned-text,
 #cafe .left-aligned-text,
-#shop .left-aligned-text {
+#post-office .left-aligned-text {
   text-align: center !important;
 }
