@@ -467,14 +467,14 @@ main {
 }
 
 
-/* --- SHOP / CAFE / POST OFFICE INFO CARD OVERRIDES ----------------- */
+/* --- SHOP / CAFE / POST OFFICE / VOLUNTEERING INFO CARD OVERRIDES --- */
 
-/* Make all info cards single-column, centred, full-width */
 #shop .info-card,
 #cafe .info-card,
-#post-office .info-card {
+#post-office .info-card,
+#volunteering-hero .info-card {
   max-width: 1100px;
-  grid-template-columns: 1fr !important;
+  grid-template-columns: 1fr !important;  /* full-width single column */
   text-align: center;
   padding: 2rem 1.8rem;
 }
@@ -482,16 +482,18 @@ main {
 /* Centre all paragraphs inside the cards */
 #shop .info-card p,
 #cafe .info-card p,
-#post-office .info-card p {
+#post-office .info-card p,
+#volunteering-hero .info-card p {
   text-align: center !important;
   margin-left: auto;
   margin-right: auto;
   max-width: 850px;
 }
 
-/* Override the legacy class that forces left alignment */
+/* Kill the old left-aligned-text behaviour in these sections */
 #shop .left-aligned-text,
 #cafe .left-aligned-text,
-#post-office .left-aligned-text {
+#post-office .left-aligned-text,
+#volunteering-hero .left-aligned-text {
   text-align: center !important;
 }
