@@ -4,70 +4,103 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>The Cafe</title>
+    <title>The Café/Deli – Hambledon Village Shop</title>
   </head>
 
   <body>
-    <header>
-      <img src="images/hvsheader.png" alt="Hambledon Village Shop Logo" />
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="theshop.html">The Shop</a></li>
-          <li><a href="post-office.html">The Post Office</a></li>
-          <li><a href="volunteering.html">Volunteering</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li>
-            <a
-              href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
-              >Our History</a
-            >
-          </li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo-wrap">
+          <img
+            src="images/hvsheader.png"
+            alt="Hambledon Village Shop Logo"
+            class="logo"
+          />
+        </a>
+
+        <!-- Mobile nav toggle -->
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="theshop.html">The Shop</a></li>
+            <li><a href="thecafe.html">The Café/Deli</a></li>
+            <li><a href="post-office.html">The Post Office</a></li>
+            <li><a href="volunteering.html">Volunteering</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li>
+              <a
+                href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
+                >Our History</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <section id="cafe" class="center-content left-aligned-text">
-      <h2 class="red-text">The Café/Deli</h2>
+    <main>
+      <section id="cafe" class="hero-section center-content">
+        <h2 class="red-text">The Café/Deli</h2>
 
-      <p>
-        <b
-          >The Café/Deli is open Monday to Sunday 08:30-14:00 with last orders
-          for the café at 13:30</b
-        >
-      </p>
-      <p>
-        The deli-café menu is published on a blackboard outside the shop and
-        includes hot pies and sausage rolls; sandwiches, wraps, baps and
-        toasties; hot drinks, milkshakes, chilled soft drinks, iced coffee;
-        cakes and tray bakes etc. Food and drinks purchased from the deli can be
-        taken away or enjoyed inside the shop and at our outdoor picnic tables.
-      </p>
-    </section>
-    <section id="deli-gallery" class="gallery-section">
-      <div class="image-grid">
-        <div class="grid-item">
-          <img src="images/sausage_rolls.jpg" alt="Gallery Image 1" />
+        <div class="info-card">
+          <section
+            class="center-section left-aligned-text"
+            aria-label="About the café and deli"
+          >
+            <p>
+              <strong
+                >The Café/Deli is open Monday to Sunday 08:30–14:00, with last
+                orders for the café at 13:30.</strong
+              >
+            </p>
+            <p>
+              The deli-café menu is published on a blackboard outside the shop
+              and includes hot pies and sausage rolls; sandwiches, wraps, baps
+              and toasties; hot drinks, milkshakes, chilled soft drinks, iced
+              coffee; cakes and tray bakes and more.
+            </p>
+            <p>
+              Food and drinks purchased from the deli can be taken away or
+              enjoyed inside the shop and at our outdoor picnic tables.
+            </p>
+          </section>
         </div>
-        <div class="grid-item">
-          <img src="images/table_in_sun.jpg" alt="Gallery Image 2" />
+      </section>
+
+      <section id="deli-gallery" class="gallery-section hero-section">
+        <div class="image-grid">
+          <div class="grid-item">
+            <img src="images/sausage_rolls.jpg" alt="Fresh sausage rolls" />
+          </div>
+          <div class="grid-item">
+            <img src="images/table_in_sun.jpg" alt="Table in the sun" />
+          </div>
+          <div class="grid-item">
+            <img src="images/picnic_benches.jpeg" alt="Picnic benches" />
+          </div>
+          <div class="grid-item">
+            <img src="images/counter.jpg" alt="Café counter" />
+          </div>
+          <div class="grid-item">
+            <img src="images/tarts.jpg" alt="Tarts and pastries" />
+          </div>
+          <div class="grid-item">
+            <img src="images/pastries.jpg" alt="Pastries" />
+          </div>
+          <div class="grid-item">
+            <img src="images/special.jpg" alt="Daily special board" />
+          </div>
         </div>
-        <div class="grid-item">
-          <img src="images/picnic_benches.jpeg" alt="Gallery Image 3" />
-        </div>
-        <div class="grid-item">
-          <img src="images/counter.jpg" alt="Gallery Image 4" />
-        </div>
-        <div class="grid-item">
-          <img src="images/tarts.jpg" alt="Gallery Image 5" />
-        </div>
-        <div class="grid-item">
-          <img src="images/pastries.jpg" alt="Gallery Image 6" />
-        </div>
-        <div class="grid-item">
-          <img src="images/special.jpg" alt="Gallery Image 7" />
-        </div>
-      </div>
+      </section>
 
       <div class="overlay" id="overlay">
         <div class="modal" id="modal">
@@ -77,11 +110,26 @@
           <button class="nav-btn" id="next-btn">&gt;</button>
         </div>
       </div>
-    </section>
+    </main>
 
-    <footer>
+    <footer class="site-footer">
       <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
     </footer>
+
     <script src="scripts/gallery.js"></script>
+    <script>
+      // Mobile nav toggle (same as other pages)
+      const navToggle = document.querySelector(".nav-toggle");
+      const mainNav = document.querySelector(".main-nav");
+
+      if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+          const expanded =
+            navToggle.getAttribute("aria-expanded") === "true" || false;
+          navToggle.setAttribute("aria-expanded", !expanded);
+          mainNav.classList.toggle("nav-open");
+        });
+      }
+    </script>
   </body>
 </html>
