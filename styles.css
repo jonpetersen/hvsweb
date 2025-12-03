@@ -68,12 +68,15 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
+/* RESPONSIVE LOGO FIX */
 .logo {
-  max-height: 80px;
-  width: auto;
   display: block;
+  width: 100%;          /* scale to container width */
+  max-width: 520px;     /* prevent it getting huge on desktop */
+  height: auto;         /* keep aspect ratio */
 }
 
 /* Navigation */
@@ -212,6 +215,17 @@ main {
 .hours small {
   font-size: 0.85rem;
   color: #777;
+}
+
+/* Text block */
+
+.center-section.left-aligned-text {
+  text-align: left;
+}
+
+.center-section.left-aligned-text p {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
 }
 
 /* Contact section */
@@ -466,8 +480,11 @@ main {
   }
 }
 
+/* ========================================================= */
+/*              PAGE-SPECIFIC INFO CARD OVERRIDES            */
+/* ========================================================= */
 
-/* --- SHOP / CAFE / POST OFFICE / VOLUNTEERING INFO CARD OVERRIDES --- */
+/* Shop, Café, Post Office, Volunteering: centred full-width cards */
 
 #shop .info-card,
 #cafe .info-card,
@@ -479,7 +496,6 @@ main {
   padding: 2rem 1.8rem;
 }
 
-/* Centre all paragraphs inside the cards */
 #shop .info-card p,
 #cafe .info-card p,
 #post-office .info-card p,
@@ -490,7 +506,8 @@ main {
   max-width: 850px;
 }
 
-/* Kill the old left-aligned-text behaviour in these sections */
+/* Override old left-aligned-text inside those sections */
+
 #shop .left-aligned-text,
 #cafe .left-aligned-text,
 #post-office .left-aligned-text,
