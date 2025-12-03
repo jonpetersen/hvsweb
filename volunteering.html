@@ -4,65 +4,118 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Volunteering - Hambledon Village Shop</title>
+    <title>Volunteering – Hambledon Village Shop</title>
   </head>
 
   <body>
-    <header>
-      <img src="images/hvsheader.png" alt="Hambledon Village Shop Logo" />
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="theshop.html">The Shop</a></li>
-          <li><a href="thecafe.html">The Café/Deli</a></li>
-          <li><a href="post-office.html">The Post Office</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li>
-            <a
-              href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
-              >Our History</a
-            >
-          </li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo-wrap">
+          <img
+            src="images/hvsheader.png"
+            alt="Hambledon Village Shop Logo"
+            class="logo"
+          />
+        </a>
+
+        <!-- Mobile nav toggle -->
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="theshop.html">The Shop</a></li>
+            <li><a href="thecafe.html">The Café/Deli</a></li>
+            <li><a href="post-office.html">The Post Office</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li>
+              <a
+                href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
+                >Our History</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <section id="volunteering-featured-image" class="center-content">
-      <h2 class="red-text">Volunteering At The Shop</h2>
-      <div class="featured-image-volunteering">
-        <img src="images/volunteers.jpg" alt="Home Featured Image" />
-      </div>
-    </section>
+    <main>
+      <!-- Hero image + heading -->
+      <section id="volunteering-hero" class="hero-section center-content">
+        <h2 class="red-text">Volunteering at the Shop</h2>
+        <div class="featured-image">
+          <img
+            src="images/volunteers.jpg"
+            alt="Hambledon Village Shop volunteers"
+          />
+        </div>
 
-    <section id="volunteering" class="center-content left-aligned-text">
-      <p>
-        There are so many ways to volunteer at the shop, no matter the skills or
-        amount of time you have to offer, so let us tailor something to suit
-        you!
-        <a
-          href="mailto:villageshop@hambledonsurrey.co.uk?ref=hambledon-village-shop-post-office"
-          >Email us</a
-        >
-        to arrange a chat with one of the team.
-      </p>
-    </section>
-    <section id="volunteering-images" class="center-content">
-      <div class="volunteering-images">
-        <img
-          src="images/volunteer-flyer-front.png"
-          alt="Volunteering Image 1"
-          class="popup-image"
-        />
-        <img
-          src="images/volunteer-flyer-back.png"
-          alt="Volunteering Image 2"
-          class="popup-image"
-        />
-      </div>
-    </section>
+        <!-- Info card, same pattern as Shop / Café -->
+        <div class="info-card">
+          <section
+            class="center-section left-aligned-text"
+            aria-label="Volunteering information"
+          >
+            <p>
+              There are so many ways to volunteer at the shop, no matter the
+              skills or amount of time you have to offer, so let us tailor
+              something to suit you!
+            </p>
+            <p>
+              <a
+                href="mailto:villageshop@hambledonsurrey.co.uk?ref=hambledon-village-shop-volunteering"
+                >Email us</a
+              >
+              to arrange a chat with one of the team.
+            </p>
+          </section>
+        </div>
+      </section>
 
-    <footer>
+      <!-- Flyers, styled like a mini gallery -->
+      <section id="volunteering-images" class="gallery-section hero-section">
+        <div class="image-grid">
+          <div class="grid-item">
+            <img
+              src="images/volunteer-flyer-front.png"
+              alt="Volunteering flyer – front"
+            />
+          </div>
+          <div class="grid-item">
+            <img
+              src="images/volunteer-flyer-back.png"
+              alt="Volunteering flyer – back"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
       <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
     </footer>
+
+    <script>
+      // Mobile nav toggle (same as other pages)
+      const navToggle = document.querySelector(".nav-toggle");
+      const mainNav = document.querySelector(".main-nav");
+
+      if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+          const expanded =
+            navToggle.getAttribute("aria-expanded") === "true" || false;
+          navToggle.setAttribute("aria-expanded", !expanded);
+          mainNav.classList.toggle("nav-open");
+        });
+      }
+    </script>
   </body>
 </html>
