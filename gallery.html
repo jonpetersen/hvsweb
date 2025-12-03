@@ -4,153 +4,206 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Gallery - Hambledon Village Shop</title>
+    <title>Gallery – Hambledon Village Shop</title>
   </head>
 
   <body>
-    <header>
-      <img src="images/hvsheader.png" alt="Hambledon Village Shop Logo" />
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="theshop.html">The Shop</a></li>
-          <li><a href="thecafe.html">The Café/Deli</a></li>
-          <li><a href="post-office.html">The Post Office</a></li>
-          <li><a href="volunteering.html">Volunteering</a></li>
-          <li>
-            <a
-              href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
-              >Our History</a
-            >
-          </li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo-wrap">
+          <img
+            src="images/hvsheader.png"
+            alt="Hambledon Village Shop Logo"
+            class="logo"
+          />
+        </a>
+
+        <!-- Mobile nav toggle -->
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="theshop.html">The Shop</a></li>
+            <li><a href="thecafe.html">The Café/Deli</a></li>
+            <li><a href="post-office.html">The Post Office</a></li>
+            <li><a href="volunteering.html">Volunteering</a></li>
+            <li>
+              <a
+                href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
+                >Our History</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <section id="gallery">
-      <div class="featured-image-gallery">
-        <img src="images/shop_drawing.png" alt="Featured Image" />
-      </div>
-
-      <div class="image-grid">
-        <div class="grid-item">
-          <img src="images/hvs1901.png" alt="Gallery Image 1" />
-        </div>
-        <div class="grid-item">
-          <img src="images/shop_1901.png" alt="Gallery Image 1" />
-        </div>
-        <div class="grid-item">
-          <img src="images/old_shop_960x432.png" alt="Gallery Image 2" />
-        </div>
-        <div class="grid-item">
-          <img src="images/edwards_960x432.png" alt="Gallery Image 3" />
-        </div>
-        <div class="grid-item">
+    <main>
+      <!-- Hero / featured image -->
+      <section id="gallery-hero" class="hero-section center-content">
+        <h2 class="red-text">Gallery</h2>
+        <div class="featured-image">
           <img
-            src="images/Alison-Heaths-photos-2-768x493.jpg"
-            alt="Gallery Image 4"
+            src="images/shop_drawing.png"
+            alt="Illustration of Hambledon Village Shop"
           />
         </div>
-        <div class="grid-item">
-          <img
-            src="images/cricket_green_stores_960_432.png"
-            alt="Gallery Image 5"
-          />
-        </div>
-        <div class="grid-item">
-          <img src="images/hvs_late1960s.jpg" alt="Gallery Image 6" />
-        </div>
-        <div class="grid-item">
-          <img src="images/hvs_early1970s.jpg" alt="Gallery Image 6" />
-        </div>
-        <div class="grid-item">
-          <img src="images/hvs_early1970s2.jpg" alt="Gallery Image 6" />
-        </div>
-        <div class="grid-item">
-          <img src="images/hvs_early1970s3.jpg" alt="Gallery Image 6" />
-        </div>
-        <div class="grid-item">
-          <img src="images/cricket_green_stores.jpg" alt="Gallery Image 6" />
-        </div>
-        <div class="grid-item">
-          <img src="images/April_The_Shop.jpg" alt="Gallery Image 7" />
-        </div>
-        <div class="grid-item">
-          <img src="images/shopinsun.png" alt="Gallery Image 8" />
-        </div>
-        <div class="grid-item">
-          <img src="images/shop_front-2.jpg" alt="Gallery Image 9" />
-        </div>
-        <div class="grid-item">
-          <img src="images/inflatables.jpg" alt="Gallery Image 10" />
-        </div>
-        <div class="grid-item">
-          <img src="images/snowman.jpg" alt="Gallery Image 11" />
-        </div>
-        <div class="grid-item">
-          <img src="images/inflatables_in_sun.jpeg" alt="Gallery Image 12" />
+      </section>
+
+      <!-- Gallery grid -->
+      <section id="gallery" class="gallery-section hero-section">
+        <div class="image-grid">
+          <div class="grid-item">
+            <img src="images/hvs1901.png" alt="Hambledon Village Shop in 1901" />
+          </div>
+          <div class="grid-item">
+            <img src="images/shop_1901.png" alt="Shop exterior 1901" />
+          </div>
+          <div class="grid-item">
+            <img src="images/old_shop_960x432.png" alt="Historic shop view" />
+          </div>
+          <div class="grid-item">
+            <img src="images/edwards_960x432.png" alt="Old shop with Edwards sign" />
+          </div>
+          <div class="grid-item">
+            <img
+              src="images/Alison-Heaths-photos-2-768x493.jpg"
+              alt="Historic photo of Hambledon"
+            />
+          </div>
+          <div class="grid-item">
+            <img
+              src="images/cricket_green_stores_960_432.png"
+              alt="Cricket Green Stores historic"
+            />
+          </div>
+          <div class="grid-item">
+            <img src="images/hvs_late1960s.jpg" alt="Shop in the late 1960s" />
+          </div>
+          <div class="grid-item">
+            <img src="images/hvs_early1970s.jpg" alt="Shop in early 1970s" />
+          </div>
+          <div class="grid-item">
+            <img src="images/hvs_early1970s2.jpg" alt="Shop early 1970s 2" />
+          </div>
+          <div class="grid-item">
+            <img src="images/hvs_early1970s3.jpg" alt="Shop early 1970s 3" />
+          </div>
+          <div class="grid-item">
+            <img src="images/cricket_green_stores.jpg" alt="Cricket Green Stores" />
+          </div>
+          <div class="grid-item">
+            <img src="images/April_The_Shop.jpg" alt="The shop in April" />
+          </div>
+          <div class="grid-item">
+            <img src="images/shopinsun.png" alt="Shop in the sunshine" />
+          </div>
+          <div class="grid-item">
+            <img src="images/shop_front-2.jpg" alt="Shop front" />
+          </div>
+          <div class="grid-item">
+            <img src="images/inflatables.jpg" alt="Inflatables by the shop" />
+          </div>
+          <div class="grid-item">
+            <img src="images/snowman.jpg" alt="Snowman outside the shop" />
+          </div>
+          <div class="grid-item">
+            <img
+              src="images/inflatables_in_sun.jpeg"
+              alt="Inflatables in the sun"
+            />
+          </div>
+          <div class="grid-item">
+            <img src="images/xmas-lights.jpg" alt="Christmas lights at the shop" />
+          </div>
+          <div class="grid-item">
+            <img src="images/pond.jpg" alt="Pond near Hambledon" />
+          </div>
+          <div class="grid-item">
+            <img src="images/pond2.jpg" alt="Pond in different season" />
+          </div>
+          <div class="grid-item">
+            <img src="images/whitall-snow.png" alt="Whittall snow illustration" />
+          </div>
+          <div class="grid-item">
+            <img src="images/whitall-sketch.png" alt="Whittall sketch" />
+          </div>
+          <div class="grid-item">
+            <img
+              src="images/shop-whittall-cropped.jpg"
+              alt="Whittall illustration of the shop"
+            />
+          </div>
+          <div class="grid-item">
+            <img src="images/peter_cross_card.jpg" alt="Peter Cross card" />
+          </div>
+          <div class="grid-item">
+            <img src="images/summer.jpg" alt="Summer view near the shop" />
+          </div>
+          <div class="grid-item">
+            <img
+              src="images/shop_with_bikes.jpg"
+              alt="Shop with bikes outside"
+            />
+          </div>
+          <div class="grid-item">
+            <img src="images/shop_grass.jpg" alt="Shop and grass area" />
+          </div>
+          <div class="grid-item">
+            <img src="images/jubillee-walk.jpg" alt="Jubilee walk near Hambledon" />
+          </div>
+          <div class="grid-item">
+            <img src="images/horse.jpg" alt="Horse near the shop" />
+          </div>
+          <div class="grid-item">
+            <img src="images/frost.jpg" alt="Frosty scene near Hambledon" />
+          </div>
+          <div class="grid-item">
+            <img src="images/dog.jpg" alt="Dog outside the shop" />
+          </div>
+          <div class="grid-item">
+            <img src="images/hours.jpg" alt="Opening hours sign" />
+          </div>
         </div>
 
-        <div class="grid-item">
-          <img src="images/xmas-lights.jpg" alt="Gallery Image 12" />
+        <div class="overlay" id="overlay">
+          <div class="modal" id="modal">
+            <img src="" alt="Expanded Image" id="expanded-image" />
+            <span class="close" id="close-modal">&times;</span>
+            <button class="nav-btn" id="prev-btn">&lt;</button>
+            <button class="nav-btn" id="next-btn">&gt;</button>
+          </div>
         </div>
-        <div class="grid-item">
-          <img src="images/pond.jpg" alt="Gallery Image 12" />
-        </div>
-        <div class="grid-item">
-          <img src="images/pond2.jpg" alt="Gallery Image 12" />
-        </div>
-        <div class="grid-item">
-          <img src="images/whitall-snow.png" alt="Gallery Image 13" />
-        </div>
-        <div class="grid-item">
-          <img src="images/whitall-sketch.png" alt="Gallery Image 14" />
-        </div>
-        <div class="grid-item">
-          <img src="images/shop-whittall-cropped.jpg" alt="Gallery Image 15" />
-        </div>
-        <div class="grid-item">
-          <img src="images/peter_cross_card.jpg" alt="Gallery Image 16" />
-        </div>
-        <div class="grid-item">
-          <img src="images/summer.jpg" alt="Gallery Image 18" />
-        </div>
-        <div class="grid-item">
-          <img src="images/shop_with_bikes.jpg" alt="Gallery Image 18" />
-        </div>
-        <div class="grid-item">
-          <img src="images/shop_grass.jpg" alt="Gallery Image 19" />
-        </div>
-        <div class="grid-item">
-          <img src="images/jubillee-walk.jpg" alt="Gallery Image 20" />
-        </div>
-        <div class="grid-item">
-          <img src="images/horse.jpg" alt="Gallery Image 21" />
-        </div>
-        <div class="grid-item">
-          <img src="images/frost.jpg" alt="Gallery Image 22" />
-        </div>
-        <div class="grid-item">
-          <img src="images/dog.jpg" alt="Gallery Image 23" />
-        </div>
-        <div class="grid-item">
-          <img src="images/hours.jpg" alt="Gallery Image 24" />
-        </div>
-      </div>
+      </section>
+    </main>
 
-      <div class="overlay" id="overlay">
-        <div class="modal" id="modal">
-          <img src="" alt="Expanded Image" id="expanded-image" />
-          <span class="close" id="close-modal">&times;</span>
-          <button class="nav-btn" id="prev-btn">&lt;</button>
-          <button class="nav-btn" id="next-btn">&gt;</button>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
+    <footer class="site-footer">
+      <p>&copy; 2025 Hambledon Village Shop. All rights reserved.</p>
     </footer>
+
     <script src="scripts/gallery.js"></script>
+    <script>
+      // Mobile nav toggle (same as other pages)
+      const navToggle = document.querySelector(".nav-toggle");
+      const mainNav = document.querySelector(".main-nav");
+
+      if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+          const expanded =
+            navToggle.getAttribute("aria-expanded") === "true" || false;
+          navToggle.setAttribute("aria-expanded", !expanded);
+          mainNav.classList.toggle("nav-open");
+        });
+      }
+    </script>
   </body>
 </html>
