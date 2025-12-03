@@ -74,9 +74,9 @@ main {
 /* RESPONSIVE LOGO FIX */
 .logo {
   display: block;
-  width: 100%;          /* scale to container width */
-  max-width: 520px;     /* prevent it getting huge on desktop */
-  height: auto;         /* keep aspect ratio */
+  width: auto;        /* don’t force full width */
+  max-width: 420px;   /* desktop / tablet limit */
+  height: auto;
 }
 
 /* Navigation */
@@ -360,6 +360,13 @@ main {
     justify-content: center;
     gap: 1.5rem;
     padding: 0.5rem 1.5rem;
+  }
+}
+
+/* Smaller logo on narrow phones */
+@media (max-width: 600px) {
+  .logo {
+    max-width: 260px;   /* dial this down if you want it even smaller */
   }
 }
 
