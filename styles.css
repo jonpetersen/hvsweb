@@ -465,3 +465,22 @@ main {
     right: -35px;
   }
 }
+
+
+/* --- SHOP PAGE OVERRIDES ------------------------------------------ */
+
+/* Make The Shop description full-width and centred */
+#shop .info-card {
+  max-width: 1100px;
+  grid-template-columns: 1fr !important; /* disable 2-column layout */
+  text-align: center;                     /* centre all text */
+  padding: 2rem 1.8rem;
+}
+
+/* Also centre inner paragraphs */
+#shop .info-card p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 850px;       /* optional: improves readability */
+}
