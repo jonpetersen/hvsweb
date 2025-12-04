@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>{% if page.title %}{{ page.title }} – {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+    {% if page.map %}
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    {% endif %}
+  </head>
+  <body>
+    {% include header.html %}
+    <main>
+      {{ content }}
+    </main>
+    {% include overlay.html %}
+    {% include footer.html %}
+
+    <script src="{{ '/assets/js/gallery.js' | relative_url }}"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const navToggle = document.querySelector('.nav-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        if (navToggle && mainNav) {
+          navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+            navToggle.setAttribute('aria-expanded', (!expanded).toString());
+            mainNav.classList.toggle('nav-open');
+          });
+        }
+      });
+    </script>
+
+    {% if page.map %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (typeof mapboxgl !== 'undefined') {
+          mapboxgl.accessToken =
+            "pk.eyJ1Ijoiam9uZXBldGVyc2VuIiwiYSI6ImNsc2dtcWc5MDEzeWYyaXB2MHgxaDdxNjQifQ.HHfayli027QjXs_TVhp1-Q";
+          const map = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/streets-v11",
+            center: [-0.625691566, 51.13485447],
+            zoom: 13,
+          });
+          new mapboxgl.Marker().setLngLat([-0.625691566, 51.13485447]).addTo(map);
+        }
+      });
+    </script>
+    {% endif %}
+  </body>
+</html>

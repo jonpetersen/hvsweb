@@ -1,0 +1,48 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a href="{{ '/' | relative_url }}" class="logo-wrap">
+      <img
+        src="{{ '/images/hvsheader.png' | relative_url }}"
+        alt="Hambledon Village Shop Logo"
+        class="logo"
+      />
+    </a>
+
+    <!-- Mobile nav toggle -->
+    <button
+      class="nav-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="{% if page.url == '/' %}active{% endif %}">
+          <a href="{{ '/' | relative_url }}">Home</a>
+        </li>
+        <li class="{% if page.url == '/theshop/' %}active{% endif %}">
+          <a href="{{ '/theshop/' | relative_url }}">The Shop</a>
+        </li>
+        <li class="{% if page.url == '/thecafe/' %}active{% endif %}">
+          <a href="{{ '/thecafe/' | relative_url }}">The Café/Deli</a>
+        </li>
+        <li class="{% if page.url == '/post-office/' %}active{% endif %}">
+          <a href="{{ '/post-office/' | relative_url }}">The Post Office</a>
+        </li>
+        <li class="{% if page.url == '/volunteering/' %}active{% endif %}">
+          <a href="{{ '/volunteering/' | relative_url }}">Volunteering</a>
+        </li>
+        <li class="{% if page.url == '/gallery/' %}active{% endif %}">
+          <a href="{{ '/gallery/' | relative_url }}">Gallery</a>
+        </li>
+        <li class="{% if page.url == '/history/' %}active{% endif %}">
+          <a href="{{ '/history/' | relative_url }}">Our History</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

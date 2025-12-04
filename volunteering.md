@@ -1,0 +1,55 @@
+---
+layout: default
+title: Volunteering
+permalink: /volunteering/
+---
+
+<!-- Hero image + heading -->
+      <section id="volunteering-hero" class="hero-section center-content">
+        <h2 class="red-text">Volunteering at the Shop</h2>
+        <div class="featured-image">
+          <img
+            src="images/volunteers.jpg"
+            alt="Hambledon Village Shop volunteers"
+          />
+        </div>
+
+        <!-- Info card, same pattern as Shop / Café -->
+        <div class="info-card">
+          <section
+            class="center-section left-aligned-text"
+            aria-label="Volunteering information"
+          >
+            <p>
+              There are so many ways to volunteer at the shop, no matter the
+              skills or amount of time you have to offer, so let us tailor
+              something to suit you!
+            </p>
+            <p>
+              <a
+                href="mailto:villageshop@hambledonsurrey.co.uk?ref=hambledon-village-shop-volunteering"
+                >Email us</a
+              >
+              to arrange a chat with one of the team.
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <!-- Flyers, styled like a mini gallery -->
+      <section id="volunteering-images" class="gallery-section hero-section">
+        <div class="image-grid">
+          <div class="grid-item">
+            <img
+              src="images/volunteer-flyer-front.png"
+              alt="Volunteering flyer – front"
+            />
+          </div>
+          <div class="grid-item">
+            <img
+              src="images/volunteer-flyer-back.png"
+              alt="Volunteering flyer – back"
+            />
+          </div>
+        </div>
+      </section>

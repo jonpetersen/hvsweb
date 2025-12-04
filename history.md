@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Our History 1922-2022</title>
-  </head>
+---
+layout: default
+title: Our History 1922–2022
+permalink: /history/
+---
 
-  <body>
-    <header>
-      <img src="images/hvsheader.png" alt="Hambledon Village Shop Logo" />
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="thecafe.html">The Café/Deli</a></li>
-          <li><a href="post-office.html">The Post Office</a></li>
-          <li><a href="volunteering.html">Volunteering</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <script
+<script
       src="//mozilla.github.io/pdf.js/build/pdf.mjs"
       type="module"
     ></script>
@@ -138,8 +121,3 @@
     </div>
 
     <canvas id="the-canvas"></canvas>
-    <footer>
-      <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
-    </footer>
-  </body>
-</html>
