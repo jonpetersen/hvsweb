@@ -1,63 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hambledon Village Shop</title>
+---
+layout: default
+title: Home
+map: true
+permalink: /
+---
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- Mapbox -->
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
-  </head>
-
-  <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <a href="index.html" class="logo-wrap">
-          <img
-            src="images/hvsheader.png"
-            alt="Hambledon Village Shop Logo"
-            class="logo"
-          />
-        </a>
-
-        <!-- Mobile nav toggle -->
-        <button
-          class="nav-toggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav class="main-nav">
-          <ul>
-            <li><a href="theshop.html">The Shop</a></li>
-            <li><a href="thecafe.html">The Café/Deli</a></li>
-            <li><a href="post-office.html">The Post Office</a></li>
-            <li><a href="volunteering.html">Volunteering</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li>
-              <a
-                href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
-                >Our History</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section id="about" class="center-content hero-section">
+<section id="about" class="center-content hero-section">
         <h2 class="red-text">Welcome to Hambledon Village Shop</h2>
 
         <div class="featured-image">
@@ -141,35 +89,3 @@
         <h3 class="map-title">Find Us</h3>
         <div id="map"></div>
       </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>&copy; 2024 Hambledon Village Shop. All rights reserved.</p>
-    </footer>
-
-    <script>
-      // Mapbox
-      mapboxgl.accessToken =
-        "pk.eyJ1Ijoiam9uZXBldGVyc2VuIiwiYSI6ImNsc2dtcWc5MDEzeWYyaXB2MHgxaDdxNjQifQ.HHfayli027QjXs_TVhp1-Q";
-      const map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/mapbox/streets-v11",
-        center: [-0.625691566, 51.13485447],
-        zoom: 13,
-      });
-
-      new mapboxgl.Marker().setLngLat([-0.625691566, 51.13485447]).addTo(map);
-
-      // Mobile nav toggle
-      const navToggle = document.querySelector(".nav-toggle");
-      const mainNav = document.querySelector(".main-nav");
-
-      navToggle.addEventListener("click", () => {
-        const expanded =
-          navToggle.getAttribute("aria-expanded") === "true" || false;
-        navToggle.setAttribute("aria-expanded", !expanded);
-        mainNav.classList.toggle("nav-open");
-      });
-    </script>
-  </body>
-</html>

@@ -1,54 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Gallery – Hambledon Village Shop</title>
-  </head>
+---
+layout: default
+title: Gallery
+permalink: /gallery/
+---
 
-  <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <a href="index.html" class="logo-wrap">
-          <img
-            src="images/hvsheader.png"
-            alt="Hambledon Village Shop Logo"
-            class="logo"
-          />
-        </a>
-
-        <!-- Mobile nav toggle -->
-        <button
-          class="nav-toggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav class="main-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="theshop.html">The Shop</a></li>
-            <li><a href="thecafe.html">The Café/Deli</a></li>
-            <li><a href="post-office.html">The Post Office</a></li>
-            <li><a href="volunteering.html">Volunteering</a></li>
-            <li>
-              <a
-                href="http://www.hambledonsurrey.co.uk/wp-content/uploads/2023/10/hvs1922-2022.pdf"
-                >Our History</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- Hero / featured image -->
+<!-- Hero / featured image -->
       <section id="gallery-hero" class="hero-section center-content">
         <h2 class="red-text">Gallery</h2>
         <div class="featured-image">
@@ -174,36 +130,5 @@
             <img src="images/hours.jpg" alt="Opening hours sign" />
           </div>
         </div>
-
-        <div class="overlay" id="overlay">
-          <div class="modal" id="modal">
-            <img src="" alt="Expanded Image" id="expanded-image" />
-            <span class="close" id="close-modal">&times;</span>
-            <button class="nav-btn" id="prev-btn">&lt;</button>
-            <button class="nav-btn" id="next-btn">&gt;</button>
-          </div>
         </div>
       </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>&copy; 2025 Hambledon Village Shop. All rights reserved.</p>
-    </footer>
-
-    <script src="scripts/gallery.js"></script>
-    <script>
-      // Mobile nav toggle (same as other pages)
-      const navToggle = document.querySelector(".nav-toggle");
-      const mainNav = document.querySelector(".main-nav");
-
-      if (navToggle && mainNav) {
-        navToggle.addEventListener("click", () => {
-          const expanded =
-            navToggle.getAttribute("aria-expanded") === "true" || false;
-          navToggle.setAttribute("aria-expanded", !expanded);
-          mainNav.classList.toggle("nav-open");
-        });
-      }
-    </script>
-  </body>
-</html>
