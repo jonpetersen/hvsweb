@@ -111,13 +111,14 @@ permalink: /history/
       });
     </script>
 
-    <div>
-      <button id="prev">Previous</button>
-      <button id="next">Next</button>
-      &nbsp; &nbsp;
-      <span
-        >Page: <span id="page_num"></span> / <span id="page_count"></span
-      ></span>
-    </div>
+<div class="history-pdf-container">
+  <div class="history-pdf-controls">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+    <span class="history-page-indicator">
+      Page: <span id="page_num"></span> / <span id="page_count"></span>
+    </span>
+  </div>
 
-    <canvas id="the-canvas"></canvas>
+  <canvas id="the-canvas"></canvas>
+</div>
