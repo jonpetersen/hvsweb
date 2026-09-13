@@ -1,0 +1,593 @@
+/* Tailwind components + utilities only — no `base`/preflight, which would
+   reset element defaults (headings, links, etc.) and break visual parity
+   with the original Jekyll site. Utility classes remain available for new
+   work; see CLAUDE.md. */
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles (imported verbatim from the Jekyll site's assets/css/styles.css) */
+
+:root {
+  --hvs-green: #305c3b;
+  --hvs-red: #b5212b;
+  --hvs-cream: #faf7f1;
+  --hvs-gray: #555555;
+  --hvs-light-gray: #e5e5e5;
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --radius-lg: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--hvs-gray);
+  background: linear-gradient(to bottom, #ffffff, var(--hvs-cream));
+}
+
+/* Layout */
+
+main {
+  padding: 1.5rem 1rem 3rem;
+}
+
+.center-content {
+  text-align: center;
+}
+
+.no-margins {
+  margin-top: 0;
+}
+
+/* Header */
+
+.site-header {
+  background: #ffffff;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--hvs-light-gray);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem 0.25rem;
+  display: flex;
+  flex-direction: column; /* stack logo and nav vertically */
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* RESPONSIVE LOGO FIX */
+.logo {
+  display: block;
+  width: auto;        /* don’t force full width */
+  max-width: 420px;   /* desktop / tablet limit */
+  height: auto;
+}
+
+/* Navigation */
+
+.main-nav {
+  width: 100%;
+  display: none; /* hidden on mobile until toggled */
+  border-top: 1px solid var(--hvs-light-gray);
+  border-bottom: 1px solid var(--hvs-light-gray);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--hvs-gray);
+  font-weight: 500;
+  position: relative;
+  padding: 0.15rem 0;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--hvs-green);
+  transition: width 0.2s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  width: 100%;
+}
+
+/* Mobile nav toggle */
+
+.nav-toggle {
+  background: none;
+  border: 1px solid var(--hvs-light-gray);
+  border-radius: 999px;
+  padding: 0.25rem 0.45rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.18rem;
+  cursor: pointer;
+  margin-bottom: 0.35rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--hvs-gray);
+  border-radius: 999px;
+}
+
+/* Show nav when open (mobile) */
+
+.main-nav.nav-open {
+  display: block;
+}
+
+/* Hero / About section */
+
+.hero-section {
+  max-width: 1100px;
+  margin: 1.5rem auto;
+}
+
+.hero-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.red-text {
+  color: var(--hvs-red);
+}
+
+/* Featured image */
+
+.featured-image {
+  margin: 0 auto 1.5rem;
+  max-width: 800px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.featured-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Info card */
+
+.info-card {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0 auto 2rem;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.7rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+}
+
+.hours h3 {
+  margin: 0 0 0.25rem;
+  color: var(--hvs-green);
+}
+
+.hours p {
+  margin: 0 0 1rem;
+}
+
+.hours strong {
+  font-size: 1rem;
+}
+
+.hours small {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Text block */
+
+.center-section.left-aligned-text {
+  text-align: left;
+}
+
+.center-section.left-aligned-text p {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+
+/* Contact section */
+
+.contact {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.contact h3 {
+  margin: 0.2rem 0;
+  font-weight: 500;
+}
+
+.contact a {
+  color: var(--hvs-green);
+  text-decoration: none;
+}
+
+.contact a:hover,
+.contact a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Instagram */
+
+.instagram-card {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.instagram-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--hvs-gray);
+  font-weight: 500;
+}
+
+.instagram-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--hvs-light-gray);
+}
+
+/* Map section */
+
+.map-section {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.map-title {
+  text-align: left;
+  margin: 0 0 0.5rem;
+  color: var(--hvs-green);
+}
+
+#map {
+  width: 100%;
+  height: 320px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--hvs-light-gray);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+  background: #ffffff;
+}
+
+/* Medium screens and up */
+
+@media (min-width: 700px) {
+  main {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .hero-section h2 {
+    font-size: 1.9rem;
+  }
+
+  .info-card {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+    align-items: flex-start;
+  }
+
+  .instagram-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 900px) {
+  .header-inner {
+    padding: 0.7rem 1.5rem 0.5rem;
+    flex-direction: column; /* keep nav under logo on desktop too */
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block; /* always show nav on desktop */
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+/* Smaller logo on narrow phones */
+@media (max-width: 600px) {
+  .logo {
+    max-width: 260px;   /* dial this down if you want it even smaller */
+  }
+}
+
+/* ========================================================= */
+/*                         GALLERY                           */
+/* ========================================================= */
+
+.gallery-section {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+
+.image-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  padding: 0.5rem;
+}
+
+/* Individual items */
+.image-grid .grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  background: #fff;
+  height: 140px; /* Thumbnail height */
+}
+
+.image-grid .grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.image-grid .grid-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ========================================================= */
+/*                         LIGHTBOX                          */
+/* ========================================================= */
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.modal img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.3rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffffbb;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+#prev-btn {
+  left: -50px;
+}
+
+#next-btn {
+  right: -50px;
+}
+
+/* Scale for mobile screens */
+@media (max-width: 600px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .image-grid .grid-item {
+    height: 120px;
+  }
+
+  #prev-btn {
+    left: -35px;
+  }
+
+  #next-btn {
+    right: -35px;
+  }
+}
+
+/* ========================================================= */
+/*              PAGE-SPECIFIC INFO CARD OVERRIDES            */
+/* ========================================================= */
+
+/* Shop, Café, Post Office, Volunteering: centred full-width cards */
+
+#shop .info-card,
+#cafe .info-card,
+#post-office .info-card,
+#volunteering-hero .info-card {
+  max-width: 1100px;
+  grid-template-columns: 1fr !important;  /* full-width single column */
+  text-align: center;
+  padding: 2rem 1.8rem;
+}
+
+#shop .info-card p,
+#cafe .info-card p,
+#post-office .info-card p,
+#volunteering-hero .info-card p {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 850px;
+}
+
+/* Override old left-aligned-text inside those sections */
+
+#shop .left-aligned-text,
+#cafe .left-aligned-text,
+#post-office .left-aligned-text,
+#volunteering-hero .left-aligned-text {
+  text-align: center !important;
+}
+
+/* --- History PDF viewer (Our History page) ----------------------- */
+
+.history-pdf-container {
+  max-width: 1000px;
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.history-pdf-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.history-pdf-controls button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.history-pdf-controls button:hover {
+  background: #f5f5f5;
+}
+
+.history-page-indicator {
+  white-space: nowrap;
+}
+
+.history-pdf-container canvas {
+  width: 100%;        /* scale to container width */
+  max-width: 1000px;  /* cap on large screens */
+  height: auto;       /* keep aspect ratio */
+  display: block;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+/* Make sure it’s comfortable on small screens */
+@media (max-width: 600px) {
+  .history-pdf-container {
+    margin: 1.5rem auto 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .history-pdf-controls {
+    gap: 0.5rem;
+  }
+
+  .history-pdf-controls button {
+    font-size: 0.9rem;
+    padding: 0.35rem 0.8rem;
+  }
+}

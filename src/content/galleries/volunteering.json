@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "image": "../../assets/images/volunteer-flyer-front.png",
+      "alt": "Volunteering flyer – front"
+    },
+    {
+      "image": "../../assets/images/volunteer-flyer-back.png",
+      "alt": "Volunteering flyer – back"
+    }
+  ]
+}

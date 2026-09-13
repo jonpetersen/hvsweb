@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import { Image } from 'astro:assets';
+import volunteersImg from '../assets/images/volunteers.jpg';
+import { getGalleryItems } from '../lib/galleries.ts';
+import { CONTACT, MAILTO_REFS } from '../consts.ts';
+
+const items = await getGalleryItems('volunteering');
+---
+
+<BaseLayout title="Volunteering">
+  <!-- Hero image + heading -->
+  <section id="volunteering-hero" class="hero-section center-content">
+    <h2 class="red-text">Volunteering at the Shop</h2>
+    <div class="featured-image">
+      <Image src={volunteersImg} alt="Hambledon Village Shop volunteers" width={800} />
+    </div>
+
+    <!-- Info card, same pattern as Shop / Café -->
+    <div class="info-card">
+      <section class="center-section left-aligned-text" aria-label="Volunteering information">
+        <p>
+          There are so many ways to volunteer at the shop, no matter the
+          skills or amount of time you have to offer, so let us tailor
+          something to suit you!
+        </p>
+        <p>
+          <a href={`mailto:${CONTACT.email}?ref=${MAILTO_REFS.volunteering}`}>Email us</a>
+          to arrange a chat with one of the team.
+        </p>
+      </section>
+    </div>
+  </section>
+
+  <!-- Flyers, styled like a mini gallery -->
+  <section id="volunteering-images" class="gallery-section hero-section">
+    <GalleryGrid items={items} />
+  </section>
+</BaseLayout>

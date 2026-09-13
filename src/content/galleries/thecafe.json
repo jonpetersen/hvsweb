@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "image": "../../assets/images/sausage_rolls.jpg",
+      "alt": "Fresh sausage rolls"
+    },
+    {
+      "image": "../../assets/images/table_in_sun.jpg",
+      "alt": "Table in the sun"
+    },
+    {
+      "image": "../../assets/images/picnic_benches.jpeg",
+      "alt": "Picnic benches"
+    },
+    {
+      "image": "../../assets/images/counter.jpg",
+      "alt": "Café counter"
+    },
+    {
+      "image": "../../assets/images/tarts.jpg",
+      "alt": "Tarts and pastries"
+    },
+    {
+      "image": "../../assets/images/pastries.jpg",
+      "alt": "Pastries"
+    },
+    {
+      "image": "../../assets/images/special.jpg",
+      "alt": "Daily special board"
+    }
+  ]
+}

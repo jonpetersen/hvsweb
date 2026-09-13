@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Our History 1922–2022">
+  <div class="history-pdf-container">
+    <div class="history-pdf-controls">
+      <button id="prev">Previous</button>
+      <button id="next">Next</button>
+      <span class="history-page-indicator">
+        Page: <span id="page_num"></span> / <span id="page_count"></span>
+      </span>
+    </div>
+
+    <canvas id="the-canvas"></canvas>
+  </div>
+</BaseLayout>
+
+<script>
+  // Pinned pdfjs-dist package, bundled by Astro/Vite — replaces the
+  // unpinned //mozilla.github.io/pdf.js/build/... demo scripts the Jekyll
+  // site loaded from a moving GitHub Pages URL with no version guarantee.
+  // See CLAUDE.md for the "pinned dep beats a moving demo URL" decision.
+  import * as pdfjsLib from 'pdfjs-dist';
+  import pdfjsWorkerUrl from 'pdfjs-dist/build/pdf.worker.mjs?url';
+  import type { PDFDocumentProxy } from 'pdfjs-dist';
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorkerUrl;
+
+  const url = '/hvs1922_2022.pdf';
+
+  let pdfDoc: PDFDocumentProxy | null = null;
+  let pageNum = 1;
+  let pageRendering = false;
+  let pageNumPending: number | null = null;
+  const scale = 1.5;
+  const canvas = document.getElementById('the-canvas');
+  const ctx = canvas instanceof HTMLCanvasElement ? canvas.getContext('2d') : null;
+
+  /**
+   * Get page info from document, resize canvas accordingly, and render page.
+   */
+  function renderPage(num: number) {
+    if (!(canvas instanceof HTMLCanvasElement) || !ctx || !pdfDoc) return;
+    pageRendering = true;
+    pdfDoc.getPage(num).then(function (page) {
+      const viewport = page.getViewport({ scale });
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      const renderTask = page.render({ canvas, canvasContext: ctx, viewport });
+
+      renderTask.promise.then(function () {
+        pageRendering = false;
+        if (pageNumPending !== null) {
+          renderPage(pageNumPending);
+          pageNumPending = null;
+        }
+      });
+    });
+
+    const pageNumEl = document.getElementById('page_num');
+    if (pageNumEl) pageNumEl.textContent = String(num);
+  }
+
+  /**
+   * If another page rendering is in progress, wait until it finishes.
+   * Otherwise render immediately.
+   */
+  function queueRenderPage(num: number) {
+    if (pageRendering) {
+      pageNumPending = num;
+    } else {
+      renderPage(num);
+    }
+  }
+
+  function onPrevPage() {
+    if (pageNum <= 1) return;
+    pageNum--;
+    queueRenderPage(pageNum);
+  }
+  document.getElementById('prev')?.addEventListener('click', onPrevPage);
+
+  function onNextPage() {
+    if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
+    pageNum++;
+    queueRenderPage(pageNum);
+  }
+  document.getElementById('next')?.addEventListener('click', onNextPage);
+
+  pdfjsLib.getDocument({ url }).promise.then(function (loadedPdfDoc) {
+    pdfDoc = loadedPdfDoc;
+    const pageCountEl = document.getElementById('page_count');
+    if (pageCountEl) pageCountEl.textContent = String(pdfDoc.numPages);
+    renderPage(pageNum);
+  });
+</script>

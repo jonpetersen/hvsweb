@@ -1,0 +1,76 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Lightbox from '../components/Lightbox.astro';
+import { SITE_NAME, SITE_DESCRIPTION, MAPBOX } from '../consts.ts';
+import '../styles/global.css';
+
+interface Props {
+  /** Page title. Rendered as "<title> – Hambledon Village Shop". */
+  title: string;
+  /** Whether to load Mapbox GL (home page only). */
+  map?: boolean;
+}
+
+const { title, map = false } = Astro.props;
+const pageTitle = `${title} – ${SITE_NAME}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
+    {
+      map && (
+        <>
+          <link
+            href={`https://api.mapbox.com/mapbox-gl-js/v${MAPBOX.version}/mapbox-gl.css`}
+            rel="stylesheet"
+          />
+          <script
+            is:inline
+            src={`https://api.mapbox.com/mapbox-gl-js/v${MAPBOX.version}/mapbox-gl.js`}
+          />
+        </>
+      )
+    }
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Lightbox />
+    <Footer />
+
+    {
+      map && (
+        <script
+          is:inline
+          define:vars={{
+            token: MAPBOX.token,
+            center: MAPBOX.center,
+            zoom: MAPBOX.zoom,
+            style: MAPBOX.style,
+          }}
+        >
+          document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mapboxgl !== 'undefined') {
+              mapboxgl.accessToken = token;
+              const map = new mapboxgl.Map({
+                container: 'map',
+                style: style,
+                center: center,
+                zoom: zoom,
+              });
+              new mapboxgl.Marker().setLngLat(center).addTo(map);
+            }
+          });
+        </script>
+      )
+    }
+  </body>
+</html>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import { Image } from 'astro:assets';
+import shopDrawing from '../assets/images/shop_drawing.png';
+import { getGalleryItems } from '../lib/galleries.ts';
+
+const items = await getGalleryItems('gallery');
+---
+
+<BaseLayout title="Gallery">
+  <!-- Hero / featured image -->
+  <section id="gallery-hero" class="hero-section center-content">
+    <h2 class="red-text">Gallery</h2>
+    <div class="featured-image">
+      <Image src={shopDrawing} alt="Illustration of Hambledon Village Shop" width={655} />
+    </div>
+  </section>
+
+  <!-- Gallery grid -->
+  <section id="gallery" class="gallery-section hero-section">
+    <GalleryGrid items={items} />
+  </section>
+</BaseLayout>

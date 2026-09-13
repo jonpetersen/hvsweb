@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/hvsheader.png';
+import { NAV } from '../consts.ts';
+import { isActive } from '../lib/nav.js';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo-wrap">
+      <Image src={logo} alt="Hambledon Village Shop Logo" class="logo" width={420} />
+    </a>
+
+    <!-- Mobile nav toggle -->
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav">
+      <ul>
+        {
+          NAV.map((item) => (
+            <li class={isActive(currentPath, item.href) ? 'active' : undefined}>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', (!expanded).toString());
+        mainNav.classList.toggle('nav-open');
+      });
+    }
+  });
+</script>

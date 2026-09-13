@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import { getGalleryItems } from '../lib/galleries.ts';
+import { HOURS } from '../consts.ts';
+
+const items = await getGalleryItems('theshop');
+---
+
+<BaseLayout title="The Shop">
+  <section id="shop" class="hero-section center-content">
+    <h2 class="red-text">The Shop</h2>
+
+    <div class="info-card">
+      <section class="center-section left-aligned-text" aria-label="About the shop">
+        <p>
+          <strong>The Shop is open {HOURS.shop.days} {HOURS.shop.range}</strong>
+        </p>
+        <p>
+          <strong>The Shop has everything you'd expect from a village shop and more:</strong>
+        </p>
+        <p>
+          Groceries – fresh fruit and veg, fantastic meat from our local
+          butcher Youngs in Chiddingfold, fresh bread from the Södt bakery
+          in Petworth, frozen meals and a large range of dry goods.
+        </p>
+        <p>
+          Alcohol – local craft beers from Crafty Brewery in Dunsfold, gin
+          from the distillery in the village (The Village Spirit
+          Collective) and a selected range of wines.
+        </p>
+        <p>Greetings cards and gifts.</p>
+        <p>
+          Local produce (when in season) including soft fruit from Tuesley
+          Farm, Isle of Wight tomatoes, asparagus.
+        </p>
+        <p>A wide range of newspapers and magazines.</p>
+        <p>A dry cleaning service.</p>
+        <p>And lots more…</p>
+      </section>
+    </div>
+  </section>
+
+  <section id="shop-gallery" class="gallery-section hero-section">
+    <GalleryGrid items={items} />
+  </section>
+</BaseLayout>

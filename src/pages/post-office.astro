@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import { getGalleryItems } from '../lib/galleries.ts';
+import { HOURS } from '../consts.ts';
+
+const items = await getGalleryItems('post-office');
+---
+
+<BaseLayout title="The Post Office">
+  <section id="post-office" class="hero-section center-content">
+    <h2 class="red-text">The Post Office</h2>
+
+    <div class="info-card">
+      <section class="center-section left-aligned-text" aria-label="About the Post Office">
+        <p>
+          <strong
+            >The Post Office is open {HOURS.postOffice.weekdayDays}
+            {HOURS.postOffice.weekdayRange} and {HOURS.postOffice.saturdayDays}
+            {HOURS.postOffice.saturdayRange}.</strong
+          >
+        </p>
+
+        <p><strong>Services offered by the Post Office:</strong></p>
+
+        <p>
+          Letters &amp; parcels<br />
+          Collect &amp; return items via Royal Mail, Parcel Force &amp; DPD
+        </p>
+
+        <p>
+          Order foreign currency<br />
+          Euros on demand
+        </p>
+
+        <p>
+          Banking – cash deposits, withdrawals, cheque deposits, balance
+          enquiries
+        </p>
+
+        <p>Bill payments</p>
+        <p>Mobile phone top-ups</p>
+        <p>Gift cards for high street stores &amp; Amazon</p>
+      </section>
+    </div>
+  </section>
+
+  <section id="post-office-gallery" class="gallery-section hero-section">
+    <GalleryGrid items={items} />
+  </section>
+</BaseLayout>

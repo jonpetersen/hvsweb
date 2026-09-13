@@ -1,0 +1,38 @@
+---
+import { Image, getImage } from 'astro:assets';
+import type { GalleryItem } from '../lib/galleries.ts';
+
+interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props;
+
+// Each item gets a thumbnail (rendered here via <Image>) and a large
+// ~1600px-wide variant for the lightbox, carried in `data-full`. Clamp both
+// to the source image's real width so small source photos are never
+// upscaled.
+const withFull = await Promise.all(
+  items.map(async (item) => {
+    const fullWidth = Math.min(1600, item.image.width);
+    const full = await getImage({ src: item.image, width: fullWidth });
+    return { ...item, fullSrc: full.src };
+  })
+);
+---
+
+<div class="image-grid">
+  {
+    withFull.map((item) => (
+      <div class="grid-item">
+        <Image
+          src={item.image}
+          alt={item.alt}
+          width={Math.min(400, item.image.width)}
+          loading="lazy"
+          data-full={item.fullSrc}
+        />
+      </div>
+    ))
+  }
+</div>

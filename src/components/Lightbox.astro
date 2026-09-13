@@ -1,0 +1,104 @@
+---
+// The image-grid lightbox overlay. Present on every page (matching the
+// original Jekyll layout, which always included the overlay markup even on
+// pages without a gallery). Its behaviour lives in src/lib/gallery-nav.js,
+// unit-tested separately, and is only wired up here to the DOM.
+import { X, ChevronLeft, ChevronRight } from 'lucide-astro';
+---
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <img src="" alt="Expanded image" id="expanded-image" />
+    <button class="close" id="close-modal" aria-label="Close image">
+      <X aria-hidden="true" size={20} />
+    </button>
+    <button class="nav-btn" id="prev-btn" aria-label="Previous image">
+      <ChevronLeft aria-hidden="true" size={22} />
+    </button>
+    <button class="nav-btn" id="next-btn" aria-label="Next image">
+      <ChevronRight aria-hidden="true" size={22} />
+    </button>
+  </div>
+</div>
+
+<script>
+  import { nextIndex, prevIndex } from '../lib/gallery-nav.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('overlay');
+    const modal = document.getElementById('modal');
+    const expandedImage = document.getElementById('expanded-image');
+    const closeModal = document.getElementById('close-modal');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    if (
+      !(overlay instanceof HTMLElement) ||
+      !(modal instanceof HTMLElement) ||
+      !(expandedImage instanceof HTMLImageElement) ||
+      !closeModal ||
+      !prevBtn ||
+      !nextBtn
+    ) {
+      return;
+    }
+
+    const gridImages: HTMLImageElement[] = Array.from(
+      document.querySelectorAll<HTMLImageElement>('.grid-item img[data-full]')
+    );
+    let currentIndex = 0;
+
+    // Arrow functions (not hoisted `function` declarations) so TypeScript
+    // keeps the non-null narrowing from the guard above inside these
+    // closures.
+    const isOpen = () => overlay.style.display === 'block';
+
+    const openAt = (index: number) => {
+      const img = gridImages[index];
+      if (!img) return;
+      currentIndex = index;
+      expandedImage.src = img.getAttribute('data-full') || img.src;
+      expandedImage.alt = img.alt;
+      overlay.style.display = 'block';
+    };
+
+    const close = () => {
+      overlay.style.display = 'none';
+    };
+
+    const showNext = () => {
+      if (gridImages.length === 0) return;
+      openAt(nextIndex(currentIndex, gridImages.length));
+    };
+
+    const showPrev = () => {
+      if (gridImages.length === 0) return;
+      openAt(prevIndex(currentIndex, gridImages.length));
+    };
+
+    gridImages.forEach((img, index) => {
+      const gridItem = img.closest('.grid-item');
+      gridItem?.addEventListener('click', () => openAt(index));
+    });
+
+    closeModal.addEventListener('click', close);
+    overlay.addEventListener('click', close);
+    modal.addEventListener('click', (event) => event.stopPropagation());
+
+    prevBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      showPrev();
+    });
+    nextBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      showNext();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!isOpen()) return;
+      if (event.key === 'Escape') close();
+      else if (event.key === 'ArrowLeft') showPrev();
+      else if (event.key === 'ArrowRight') showNext();
+    });
+  });
+</script>

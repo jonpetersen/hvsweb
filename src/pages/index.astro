@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import shopFront from '../assets/images/shop_front.jpg';
+import instagramIcon from '../assets/images/instagram.jpg';
+import { CONTACT, HOURS, MAILTO_REFS, INSTAGRAM_HANDLE, INSTAGRAM_URL } from '../consts.ts';
+---
+
+<BaseLayout title="Home" map>
+  <section id="about" class="center-content hero-section">
+    <h2 class="red-text">Welcome to Hambledon Village Shop</h2>
+
+    <div class="featured-image">
+      <Image src={shopFront} alt="Hambledon Village Shop front" width={800} />
+    </div>
+
+    <div class="info-card">
+      <div class="hours">
+        <h3>Shop Hours</h3>
+        <p>
+          {HOURS.shop.days}<br />
+          <strong>{HOURS.shop.range}</strong><br />
+          <small>Last deli-café orders at {HOURS.shop.lastOrdersTime}</small>
+        </p>
+
+        <h3>Post Office Hours</h3>
+        <p>
+          {HOURS.postOffice.weekdayDays}<br />
+          <strong>{HOURS.postOffice.weekdayRange}</strong><br />
+          {HOURS.postOffice.saturdayDays}<br />
+          <strong>{HOURS.postOffice.saturdayRange}</strong>
+        </p>
+      </div>
+
+      <section id="shop-description" class="center-section left-aligned-text">
+        <p>
+          The Village Shop is nestled in the Surrey Hills, next to the
+          Cricket Green in the beautiful village of Hambledon, Surrey. The
+          Shop is owned and run by the community and in its small space
+          provides a grocery shop, an off-license, a newsagent, a café, a
+          delicatessen and a Post Office. Most important of all, it provides
+          a communal hub where locals and visitors can meet and mingle, or
+          just enjoy a quiet coffee in beautiful and peaceful surroundings.
+        </p>
+        <p>
+          The Shop has a modern disabled accessible toilet and nappy
+          changing facility, fast and free Wi-Fi (just ask for the
+          password), a kids’ play area, complimentary dog biscuits and
+          plenty of free on-street parking.
+        </p>
+      </section>
+    </div>
+
+    <div class="contact">
+      <h3>
+        Hambledon Village Shop<br />
+        {CONTACT.address}
+      </h3>
+      <h3>Tel: <a href={CONTACT.phoneHref}>{CONTACT.phone}</a></h3>
+      <h3>
+        <a href={`mailto:${CONTACT.email}?ref=${MAILTO_REFS.home}`}>{CONTACT.email}</a>
+      </h3>
+    </div>
+  </section>
+
+  <section id="instagram-section" class="center-content no-margins">
+    <div class="instagram-card">
+      <h3>Follow us on Instagram</h3>
+      <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="instagram-link">
+        <Image src={instagramIcon} alt="Instagram Icon" class="instagram-icon" width={80} />
+        <span>@{INSTAGRAM_HANDLE}</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="map-section" class="map-section">
+    <h3 class="map-title">Find Us</h3>
+    <div id="map"></div>
+  </section>
+</BaseLayout>

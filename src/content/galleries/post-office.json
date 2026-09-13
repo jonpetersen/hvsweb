@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "image": "../../assets/images/post_office1.jpg",
+      "alt": "Hambledon Post Office counter"
+    },
+    {
+      "image": "../../assets/images/post_office_sign.jpg",
+      "alt": "Post Office sign"
+    },
+    {
+      "image": "../../assets/images/postbox.jpg",
+      "alt": "Village post box"
+    }
+  ]
+}

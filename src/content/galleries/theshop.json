@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "image": "../../assets/images/bread.jpg",
+      "alt": "Fresh bread"
+    },
+    {
+      "image": "../../assets/images/veg.jpg",
+      "alt": "Fresh vegetables"
+    },
+    {
+      "image": "../../assets/images/asparagus.jpg",
+      "alt": "Asparagus"
+    },
+    {
+      "image": "../../assets/images/peppers.jpg",
+      "alt": "Colourful peppers"
+    },
+    {
+      "image": "../../assets/images/vann-lane-gin.jpg",
+      "alt": "Local gin bottles"
+    },
+    {
+      "image": "../../assets/images/red_wine.jpg",
+      "alt": "Red wine bottles"
+    },
+    {
+      "image": "../../assets/images/cards2.jpg",
+      "alt": "Greetings cards"
+    },
+    {
+      "image": "../../assets/images/beer.jpeg",
+      "alt": "Local craft beers"
+    },
+    {
+      "image": "../../assets/images/fruit.jpg",
+      "alt": "Fresh fruit selection"
+    },
+    {
+      "image": "../../assets/images/honey.jpg",
+      "alt": "Local honey"
+    },
+    {
+      "image": "../../assets/images/wine.jpg",
+      "alt": "Wine display"
+    },
+    {
+      "image": "../../assets/images/dog_icecream.jpeg",
+      "alt": "Dog ice cream"
+    },
+    {
+      "image": "../../assets/images/local_produce.jpg",
+      "alt": "Local produce"
+    },
+    {
+      "image": "../../assets/images/bbq.jpg",
+      "alt": "BBQ goods"
+    },
+    {
+      "image": "../../assets/images/coffee.jpg",
+      "alt": "Coffee at the shop"
+    },
+    {
+      "image": "../../assets/images/gin.jpg",
+      "alt": "Gin bottles"
+    },
+    {
+      "image": "../../assets/images/flowers.jpg",
+      "alt": "Flowers for sale"
+    },
+    {
+      "image": "../../assets/images/wine2.jpg",
+      "alt": "More wines"
+    },
+    {
+      "image": "../../assets/images/more_honey.jpg",
+      "alt": "Selection of honeys"
+    },
+    {
+      "image": "../../assets/images/tea.jpg",
+      "alt": "Tea selection"
+    }
+  ]
+}
