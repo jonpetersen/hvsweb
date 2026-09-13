@@ -12,20 +12,14 @@ site in September 2026.
 
 ## Hosting
 
-- **GitHub Pages**, deployed via GitHub Actions using the official Pages
-  artifact flow (`actions/upload-pages-artifact` + `actions/deploy-pages`) —
-  not the legacy Jekyll auto-build.
-- **Custom domain**: `www.hambledonvillageshop.co.uk`, configured by
-  `public/CNAME` (built into `dist/CNAME`).
-- **DNS**: managed at Cloudflare. The apex (`hambledonvillageshop.co.uk`)
-  points to GitHub's Pages IPs (185.199.108.153, .109.153, .110.153,
-  .111.153) via `A` records; `www` is a proxied `CNAME`/A record pointing at
-  the GitHub Pages site.
-- **The repo must stay public.** In September 2026 the GitHub Pages
-  settings were lost when this repo was briefly made private — GitHub Pages
-  on the free plan only serves public repositories, and flipping a repo
-  private silently disables (and can drop) the Pages configuration. Do not
-  make this repo private.
+- **GitHub Pages**, deployed by GitHub Actions using the Pages artifact flow (`actions/upload-pages-artifact` + `actions/deploy-pages`) — not the legacy Jekyll auto-build. The repo's Pages source must be set to **GitHub Actions** (Settings → Pages → Build and deployment), otherwise `deploy-pages` fails.
+- **Custom domain**: `www.hambledonvillageshop.co.uk`, configured by `public/CNAME` (built into `dist/CNAME`) and shown under Settings → Pages. The apex redirects to `www` (GitHub does this automatically).
+- **DNS** is at Cloudflare (zone `hambledonvillageshop.co.uk`): the apex has `A` records to GitHub Pages (185.199.108.153, .109.153, .110.153, .111.153); `www` is a `CNAME` to `jonpetersen.github.io`, **DNS only (grey cloud)** so GitHub can issue and renew the HTTPS certificate. The same zone also holds `dashboard.` (hvs-dashboard VPS), `ups.` (Cloudflare tunnel) and mail records — don't touch those.
+- **Verified domain**: `hambledonvillageshop.co.uk` is verified on the `jonpetersen` GitHub account (Settings → Pages → Verified domains), backed by the TXT record `_github-pages-challenge-jonpetersen.hambledonvillageshop.co.uk`. **Never delete that TXT record** — it is what stops another GitHub account claiming the domain.
+- **The repo must stay public.** Free-plan GitHub Pages only serves public repos.
+
+### What went wrong in 2026 (why the above matters)
+In 2026 the repo was briefly made private, which removed its Pages site. DNS still pointed at GitHub, so another GitHub account attached `hambledonvillageshop.co.uk` to its own Pages site (serving an empty page from ~28 Aug 2026) and GitHub then refused the domain as "already taken". Recovery in Sept 2026: verify the domain on the jonpetersen account (TXT challenge record), re-create Pages with the GitHub Actions source, re-attach the custom domain, set `www` to DNS-only, enforce HTTPS.
 
 ## Local development
 
@@ -39,6 +33,19 @@ npm run build     # -> dist/
 npm run preview   # serve the built dist/ locally
 npm test          # node:test — see "Tests" below
 ```
+
+## Keeping the MacBook in sync
+
+The Mac mini and MacBook (`jons-macbook-neo`) both have a checkout at `~/dev/hvsweb`, cloned over HTTPS (the repo is public, so fetching needs no credentials). On the MacBook a LaunchAgent runs `scripts/autopull.sh` every 15 minutes (and at login): it **only fast-forwards** `main` to `origin/main`. It never resets, rebases, stashes, merges or runs `npm install`, and it skips (logging why) when the checkout is on another branch, has uncommitted changes to tracked files, has unpushed commits, has diverged, or git holds `index.lock`. An untracked local file that collides with an incoming file also blocks the fast-forward and is logged as `DIVERGED`.
+
+- Log: `~/Library/Logs/hvsweb-autopull.log` (launchd's own output: `hvsweb-autopull.launchd.log`)
+- Install / reinstall:
+  ```bash
+  cp launchd/com.jonpetersen.hvsweb-autopull.plist ~/Library/LaunchAgents/
+  launchctl bootout gui/$(id -u)/com.jonpetersen.hvsweb-autopull 2>/dev/null; launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jonpetersen.hvsweb-autopull.plist
+  ```
+- Check it: `launchctl print gui/$(id -u)/com.jonpetersen.hvsweb-autopull | grep -E 'state|last exit'` and `tail ~/Library/Logs/hvsweb-autopull.log`
+- After a pull that changes `package.json`, run `npm ci` yourself before `npm run dev`.
 
 ## Editing common things
 
@@ -82,6 +89,7 @@ framework dependency — just Node's built-in runner.
 - `test/workflow.test.js` — parses `.github/workflows/deploy.yml` as text
   and asserts the `deploy` job `needs:` the `test` job, so a broken or
   removed dependency between them is caught.
+- `test/autopull.test.js` — runs `scripts/autopull.sh` against real temporary git repos (bare origin + clones): fast-forwards when behind; leaves the checkout untouched when up to date, dirty, ahead, diverged, on another branch, locked, or missing; untracked files don't block a pull.
 
 Run under both Node versions before trusting a change:
 

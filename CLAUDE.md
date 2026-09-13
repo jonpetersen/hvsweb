@@ -51,6 +51,8 @@ See `README.md` for the hosting picture and day-to-day editing instructions.
   `hvs1922_2022.pdf`.
 - `test/` — `node:test` suite; see README.md § Tests.
 - `.github/workflows/deploy.yml` — CI/CD; see README.md § CI/CD.
+- `scripts/autopull.sh` + `launchd/com.jonpetersen.hvsweb-autopull.plist` — MacBook fast-forward-only auto-pull (LaunchAgent, 15 min). See README.md § Keeping the MacBook in sync.
+- `test/autopull.test.js` — real-git tests for that script.
 
 ## Commands
 
@@ -59,6 +61,8 @@ npm ci && npm run check && npm run build && npm test
 ```
 is the standard "does this still work" check — run it before considering
 any change done.
+
+Docs rule: README.md (humans), this file (agents) and the Obsidian vault note `~/vault/Dev Projects/HVS/hvsweb.md` (Jon) update in the same commit/session as the change they describe.
 
 ## Conventions / decisions (House Standards was silent on these)
 
@@ -114,14 +118,8 @@ any change done.
 - **Push to `main` = deploy.** There is no staging environment; a push to
   `main` that passes `npm run check && npm run build && npm test` in CI
   goes live via `actions/deploy-pages`.
-- **The repo must stay public.** GitHub Pages on the free plan requires a
-  public repo; making it private has previously (Sept 2026) silently lost
-  the Pages configuration.
-- **Keep URLs stable.** All pages use `trailingSlash: 'always'` and must
-  keep exactly these paths: `/`, `/theshop/`, `/thecafe/`, `/post-office/`,
-  `/volunteering/`, `/gallery/`, `/history/`. Do not add/remove trailing
-  slashes or rename routes without a redirect plan — these URLs are shared
-  externally (Google listing, printed material, Instagram bio, etc.).
+- **The repo must stay public, and the domain verification must stay in place.** Making the repo private removed the Pages site in 2026 and another GitHub account then claimed the domain. The TXT record `_github-pages-challenge-jonpetersen` in Cloudflare and the verified domain on the jonpetersen GitHub account prevent a repeat — never remove them. Pages source must be "GitHub Actions". `www` must stay DNS-only (grey cloud) in Cloudflare or GitHub can't renew the HTTPS cert. Full story in README.md § Hosting.
+- **Keep URLs stable.** All pages use `trailingSlash: 'always'` and must keep exactly these paths: `/`, `/theshop/`, `/thecafe/`, `/post-office/`, `/volunteering/`, `/gallery/`, `/history/` (the same URLs the Jekyll site had, so existing links and search results keep working). Don't rename routes without adding redirects. Note the old `/images/...` URLs did NOT survive the migration (images are now hashed under `/_astro/`).
 - **Images live in `src/assets/` and are referenced through the content
   collection** (for galleries) or a direct `astro:assets` import (for
   featured images, the header logo, the Instagram icon) — never as a plain
@@ -132,3 +130,6 @@ any change done.
   exist," not a separate check.
 - `test/build-output.test.js` requires `dist/` to exist (`npm run build`
   first); it fails loudly rather than skipping if it's missing.
+- **`dist/` contains unused original images.** Astro copies the full-size originals of content-collection images into `dist/_astro/` (~50 MB) even though pages only reference the resized WebP variants. Harmless (nothing links to them, well under Pages' 1 GB limit) — don't chase it unless deploy size becomes a problem.
+- **The history page title says "1922–2022" but the PDF cover says "1992–2022"** (carried over from the Jekyll site, including the PDF filename). Unconfirmed which is intended — ask Jon before changing it; renaming the PDF changes its public URL.
+- **Autopull on the MacBook only fast-forwards.** If you leave the MacBook checkout dirty, on a branch, or with unpushed commits, it silently stops updating (see its log) — that's by design.

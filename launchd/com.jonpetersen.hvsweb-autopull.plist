@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.jonpetersen.hvsweb-autopull</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/jon/dev/hvsweb/scripts/autopull.sh</string>
+  </array>
+
+  <!-- launchd starts agents in a cwd the process may not be allowed to
+       read, which makes git (and other tools) fail with "Unable to read
+       current working directory". Pin it somewhere always readable. -->
+  <key>WorkingDirectory</key>
+  <string>/Users/jon</string>
+
+  <!-- Every 15 minutes. -->
+  <key>StartInterval</key>
+  <integer>900</integer>
+
+  <!-- Catch up after sleep/shutdown rather than silently skipping. -->
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/jon/Library/Logs/hvsweb-autopull.launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/jon/Library/Logs/hvsweb-autopull.launchd.log</string>
+
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>LowPriorityIO</key>
+  <true/>
+</dict>
+</plist>
