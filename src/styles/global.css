@@ -436,8 +436,12 @@ main {
 }
 
 .modal img {
-  width: 100%;
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
   height: auto;
+  object-fit: contain;
   border-radius: 12px;
 }
 

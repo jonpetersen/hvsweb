@@ -51,7 +51,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-astro';
     // Arrow functions (not hoisted `function` declarations) so TypeScript
     // keeps the non-null narrowing from the guard above inside these
     // closures.
-    const isOpen = () => overlay.style.display === 'block';
+    const isOpen = () => overlay.style.display === 'flex';
 
     const openAt = (index: number) => {
       const img = gridImages[index];
@@ -59,7 +59,8 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-astro';
       currentIndex = index;
       expandedImage.src = img.getAttribute('data-full') || img.src;
       expandedImage.alt = img.alt;
-      overlay.style.display = 'block';
+      // 'flex' (not the old site's 'block') so .overlay's centring rules apply.
+      overlay.style.display = 'flex';
     };
 
     const close = () => {
